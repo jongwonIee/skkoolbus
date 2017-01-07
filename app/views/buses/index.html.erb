@@ -204,3 +204,28 @@
       없음
   <% end %>
 </p>
+
+<p>
+  [10]
+  <% if @kind10 == "2" %>
+      <% @json10 %>
+      <%= @sequence10 %>번 정류장|
+      <%= @stationName10 %>|
+      <%= @eventDate10 %>|
+      도착|
+      <%= @useTime10 %>분|
+      <%= @carNumber10 %>
+  <% elsif @kind10 == "3" %>
+      <% @json10 %>
+      <%= @sequence10 %>번 정류장|
+      <%= @stationName10 %>|
+      <%= @eventDate10 %>|
+      출발|
+      <%= @useTime10 %>분|
+      <%= @carNumber10 %>
+  <% elsif @kind10 = "" %>
+      없음
+  <% end %>
+</p>
+
+<a></a>
