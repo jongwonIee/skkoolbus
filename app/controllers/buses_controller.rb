@@ -2,6 +2,7 @@ class BusesController < ApplicationController
   def index
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
     if response[10] != nil
+      @bool = true
       for n in [1,2,3,4,5,6,7,8,9,10,11]
         @json = response[n-1],
             instance_variable_set("@json#{n}", response[n-1]),
