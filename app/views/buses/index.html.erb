@@ -1,29 +1,28 @@
 <p>
   [1]
-  <% if @kind1 == "2" %>
+  <% if @kind1 == "3" %>
     <% @json1 %>
     <%= @sequence1 %>번 정류장|
     <%= @stationName1 %>|
     <%= @eventDate1 %>|
-    도착|
-    <%= @useTime1 %>분|
-    <%= @carNumber1 %>
-  <% elsif @kind1 == "3" %>
+    도착 후 대기 <%= @useTime1 %>분|
+    <%= @carNumber1 %>|
+  <% elsif @kind1 == "2" %>
     <% @json1 %>
     <%= @sequence1 %>번 정류장|
     <%= @stationName1 %>|
     <%= @eventDate1 %>|
-    출발|
-    <%= @useTime1 %>분|
-    <%= @carNumber1 %>
+    출발한지 <%= @useTime1 %>분|
+    <%= @carNumber1 %>|
   <% elsif @kind1 = "" %>
     없음
   <% end %>
+  다음버스예상도착시간: <%= @expect1 %>분
 </p>
 
 <p>
   [2]
-  <% if @kind2 == "2" %>
+  <% if @kind2 == "3" %>
       <% @json2 %>
       <%= @sequence2 %>번 정류장|
       <%= @stationName2 %>|
@@ -31,7 +30,7 @@
       도착|
       <%= @useTime2 %>분|
       <%= @carNumber2 %>
-  <% elsif @kind2 == "3" %>
+  <% elsif @kind2 == "2" %>
       <% @json2 %>
       <%= @sequence2 %>번 정류장|
       <%= @stationName2 %>|
@@ -46,7 +45,7 @@
 
 <p>
   [3]
-  <% if @kind3 == "2" %>
+  <% if @kind3 == "3" %>
       <% @json3 %>
       <%= @sequence3 %>번 정류장|
       <%= @stationName3 %>|
@@ -54,7 +53,7 @@
       도착|
       <%= @useTime3 %>분|
       <%= @carNumber3 %>
-  <% elsif @kind3 == "3" %>
+  <% elsif @kind3 == "2" %>
       <% @json3 %>
       <%= @sequence3 %>번 정류장|
       <%= @stationName3 %>|
@@ -69,7 +68,7 @@
 
 <p>
   [4]
-  <% if @kind4 == "2" %>
+  <% if @kind4 == "3" %>
       <% @json4 %>
       <%= @sequence4 %>번 정류장|
       <%= @stationName4 %>|
@@ -77,7 +76,7 @@
       도착|
       <%= @useTime4 %>분|
       <%= @carNumber4 %>
-  <% elsif @kind4 == "3" %>
+  <% elsif @kind4 == "2" %>
       <% @json4 %>
       <%= @sequence4 %>번 정류장|
       <%= @stationName4 %>|
@@ -92,7 +91,7 @@
 
 <p>
   [5]
-  <% if @kind5 == "2" %>
+  <% if @kind5 == "3" %>
       <% @json5 %>
       <%= @sequence5 %>번 정류장|
       <%= @stationName5 %>|
@@ -100,7 +99,7 @@
       도착|
       <%= @useTime5 %>분|
       <%= @carNumber5 %>
-  <% elsif @kind5 == "3" %>
+  <% elsif @kind5 == "2" %>
       <% @json5 %>
       <%= @sequence5 %>번 정류장|
       <%= @stationName5 %>|
@@ -114,8 +113,8 @@
 </p>
 
 <p>
-  [3]
-  <% if @kind6 == "2" %>
+  [6]
+  <% if @kind6 == "3" %>
       <% @json6 %>
       <%= @sequence6 %>번 정류장|
       <%= @stationName6 %>|
@@ -123,7 +122,7 @@
       도착|
       <%= @useTime6 %>분|
       <%= @carNumber6 %>
-  <% elsif @kind6 == "3" %>
+  <% elsif @kind6 == "2" %>
       <% @json6 %>
       <%= @sequence6 %>번 정류장|
       <%= @stationName6 %>|
@@ -138,7 +137,7 @@
 
 <p>
   [7]
-  <% if @kind7 == "2" %>
+  <% if @kind7 == "3" %>
       <% @json7 %>
       <%= @sequence7 %>번 정류장|
       <%= @stationName7 %>|
@@ -146,7 +145,7 @@
       도착|
       <%= @useTime7 %>분|
       <%= @carNumber7 %>
-  <% elsif @kind7 == "3" %>
+  <% elsif @kind7 == "2" %>
       <% @json7 %>
       <%= @sequence7 %>번 정류장|
       <%= @stationName7 %>|
@@ -161,7 +160,7 @@
 
 <p>
   [8]
-  <% if @kind8 == "2" %>
+  <% if @kind8 == "3" %>
       <% @json8 %>
       <%= @sequence8 %>번 정류장|
       <%= @stationName8 %>|
@@ -169,7 +168,7 @@
       도착|
       <%= @useTime8 %>분|
       <%= @carNumber8 %>
-  <% elsif @kind8 == "3" %>
+  <% elsif @kind8 == "2" %>
       <% @json8 %>
       <%= @sequence8 %>번 정류장|
       <%= @stationName8 %>|
@@ -184,7 +183,7 @@
 
 <p>
   [9]
-  <% if @kind9 == "2" %>
+  <% if @kind9 == "3" %>
       <% @json9 %>
       <%= @sequence9 %>번 정류장|
       <%= @stationName9 %>|
@@ -192,7 +191,7 @@
       도착|
       <%= @useTime9 %>분|
       <%= @carNumber9 %>
-  <% elsif @kind9 == "3" %>
+  <% elsif @kind9 == "2" %>
       <% @json9 %>
       <%= @sequence9 %>번 정류장|
       <%= @stationName9 %>|
@@ -207,7 +206,7 @@
 
 <p>
   [10]
-  <% if @kind10 == "2" %>
+  <% if @kind10 == "3" %>
       <% @json10 %>
       <%= @sequence10 %>번 정류장|
       <%= @stationName10 %>|
@@ -215,7 +214,7 @@
       도착|
       <%= @useTime10 %>분|
       <%= @carNumber10 %>
-  <% elsif @kind10 == "3" %>
+  <% elsif @kind10 == "2" %>
       <% @json10 %>
       <%= @sequence10 %>번 정류장|
       <%= @stationName10 %>|
@@ -227,5 +226,30 @@
       없음
   <% end %>
 </p>
+<% if response[10] != nil %>
+  <p>
+    [11]
+    <% if @kind11 == "3" %>
+        <% @json11 %>
+        <%= @sequence11 %>번 정류장|
+        <%= @stationName11 %>|
+        <%= @eventDate11 %>|
+        도착|
+        <%= @useTime11 %>분|
+        <%= @carNumber11 %>
+    <% elsif @kind11 == "2" %>
+        <% @json11 %>
+        <%= @sequence11 %>번 정류장|
+        <%= @stationName11 %>|
+        <%= @eventDate11 %>|
+        출발|
+        <%= @useTime11 %>분|
+        <%= @carNumber11 %>
+    <% elsif @kind11 = "" %>
+        없음
+    <% end %>
+  </p>
+<% else %>
+<% end %>
 
 <a href="/schedule">인사캠 버스 운영시간 보기</a>
