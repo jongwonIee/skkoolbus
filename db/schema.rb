@@ -13,6 +13,16 @@
 ActiveRecord::Schema.define(version: 20170107180721) do
 
   create_table "buses", force: :cascade do |t|
+    t.integer  "s1"
+    t.integer  "s2"
+    t.integer  "s3"
+    t.integer  "s4"
+    t.integer  "s5"
+    t.integer  "s6"
+    t.integer  "s7"
+    t.integer  "s8"
+    t.integer  "s9"
+    t.integer  "s10"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

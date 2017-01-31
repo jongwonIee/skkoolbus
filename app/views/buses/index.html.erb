@@ -1,255 +1,274 @@
-<p>
-  [1]
-  <% if @kind1 == "3" %>
-    <% @json1 %>
-    <%= @sequence1 %>번 정류장|
-    <%= @stationName1 %>|
-    <%= @eventDate1 %>|
-    도착 후 대기 <%= @useTime1 %>분|
-    <%= @carNumber1 %>|
-  <% elsif @kind1 == "2" %>
-    <% @json1 %>
-    <%= @sequence1 %>번 정류장|
-    <%= @stationName1 %>|
-    <%= @eventDate1 %>|
-    출발한지 <%= @useTime1 %>분|
-    <%= @carNumber1 %>|
-  <% elsif @kind1 = "" %>
-    없음
-  <% end %>
-  다음버스예상도착시간: <%= @expect1 %>분
-</p>
-
-<p>
-  [2]
-  <% if @kind2 == "3" %>
-      <% @json2 %>
-      <%= @sequence2 %>번 정류장|
-      <%= @stationName2 %>|
-      <%= @eventDate2 %>|
-      도착|
-      <%= @useTime2 %>분|
-      <%= @carNumber2 %>
-  <% elsif @kind2 == "2" %>
-      <% @json2 %>
-      <%= @sequence2 %>번 정류장|
-      <%= @stationName2 %>|
-      <%= @eventDate2 %>|
-      출발|
-      <%= @useTime2 %>분|
-      <%= @carNumber2 %>
-  <% elsif @kind2 = "" %>
-      없음
-  <% end %>
-</p>
-
-<p>
-  [3]
-  <% if @kind3 == "3" %>
-      <% @json3 %>
-      <%= @sequence3 %>번 정류장|
-      <%= @stationName3 %>|
-      <%= @eventDate3 %>|
-      도착|
-      <%= @useTime3 %>분|
-      <%= @carNumber3 %>
-  <% elsif @kind3 == "2" %>
-      <% @json3 %>
-      <%= @sequence3 %>번 정류장|
-      <%= @stationName3 %>|
-      <%= @eventDate3 %>|
-      출발|
-      <%= @useTime3 %>분|
-      <%= @carNumber3 %>
-  <% elsif @kind3 = "" %>
-      없음
-  <% end %>
-</p>
-
-<p>
-  [4]
-  <% if @kind4 == "3" %>
-      <% @json4 %>
-      <%= @sequence4 %>번 정류장|
-      <%= @stationName4 %>|
-      <%= @eventDate4 %>|
-      도착|
-      <%= @useTime4 %>분|
-      <%= @carNumber4 %>
-  <% elsif @kind4 == "2" %>
-      <% @json4 %>
-      <%= @sequence4 %>번 정류장|
-      <%= @stationName4 %>|
-      <%= @eventDate4 %>|
-      출발|
-      <%= @useTime4 %>분|
-      <%= @carNumber4 %>
-  <% elsif @kind4 = "" %>
-      없음
-  <% end %>
-</p>
-
-<p>
-  [5]
-  <% if @kind5 == "3" %>
-      <% @json5 %>
-      <%= @sequence5 %>번 정류장|
-      <%= @stationName5 %>|
-      <%= @eventDate5 %>|
-      도착|
-      <%= @useTime5 %>분|
-      <%= @carNumber5 %>
-  <% elsif @kind5 == "2" %>
-      <% @json5 %>
-      <%= @sequence5 %>번 정류장|
-      <%= @stationName5 %>|
-      <%= @eventDate5 %>|
-      출발|
-      <%= @useTime5 %>분|
-      <%= @carNumber5 %>
-  <% elsif @kind5 = "" %>
-      없음
-  <% end %>
-</p>
-
-<p>
-  [6]
-  <% if @kind6 == "3" %>
-      <% @json6 %>
-      <%= @sequence6 %>번 정류장|
-      <%= @stationName6 %>|
-      <%= @eventDate6 %>|
-      도착|
-      <%= @useTime6 %>분|
-      <%= @carNumber6 %>
-  <% elsif @kind6 == "2" %>
-      <% @json6 %>
-      <%= @sequence6 %>번 정류장|
-      <%= @stationName6 %>|
-      <%= @eventDate6 %>|
-      출발|
-      <%= @useTime6 %>분|
-      <%= @carNumber6 %>
-  <% elsif @kind3 = "" %>
-      없음
-  <% end %>
-</p>
-
-<p>
-  [7]
-  <% if @kind7 == "3" %>
-      <% @json7 %>
-      <%= @sequence7 %>번 정류장|
-      <%= @stationName7 %>|
-      <%= @eventDate7 %>|
-      도착|
-      <%= @useTime7 %>분|
-      <%= @carNumber7 %>
-  <% elsif @kind7 == "2" %>
-      <% @json7 %>
-      <%= @sequence7 %>번 정류장|
-      <%= @stationName7 %>|
-      <%= @eventDate7 %>|
-      출발|
-      <%= @useTime7 %>분|
-      <%= @carNumber7 %>
-  <% elsif @kind7 = "" %>
-      없음
-  <% end %>
-</p>
-
-<p>
-  [8]
-  <% if @kind8 == "3" %>
-      <% @json8 %>
-      <%= @sequence8 %>번 정류장|
-      <%= @stationName8 %>|
-      <%= @eventDate8 %>|
-      도착|
-      <%= @useTime8 %>분|
-      <%= @carNumber8 %>
-  <% elsif @kind8 == "2" %>
-      <% @json8 %>
-      <%= @sequence8 %>번 정류장|
-      <%= @stationName8 %>|
-      <%= @eventDate8 %>|
-      출발|
-      <%= @useTime8 %>분|
-      <%= @carNumber8 %>
-  <% elsif @kind8 = "" %>
-      없음
-  <% end %>
-</p>
-
-<p>
-  [9]
-  <% if @kind9 == "3" %>
-      <% @json9 %>
-      <%= @sequence9 %>번 정류장|
-      <%= @stationName9 %>|
-      <%= @eventDate9 %>|
-      도착|
-      <%= @useTime9 %>분|
-      <%= @carNumber9 %>
-  <% elsif @kind9 == "2" %>
-      <% @json9 %>
-      <%= @sequence9 %>번 정류장|
-      <%= @stationName9 %>|
-      <%= @eventDate9 %>|
-      출발|
-      <%= @useTime9 %>분|
-      <%= @carNumber9 %>
-  <% elsif @kind9 = "" %>
-      없음
-  <% end %>
-</p>
-
-<p>
-  [10]
-  <% if @kind10 == "3" %>
-      <% @json10 %>
-      <%= @sequence10 %>번 정류장|
-      <%= @stationName10 %>|
-      <%= @eventDate10 %>|
-      도착|
-      <%= @useTime10 %>분|
-      <%= @carNumber10 %>
-  <% elsif @kind10 == "2" %>
-      <% @json10 %>
-      <%= @sequence10 %>번 정류장|
-      <%= @stationName10 %>|
-      <%= @eventDate10 %>|
-      출발|
-      <%= @useTime10 %>분|
-      <%= @carNumber10 %>
-  <% elsif @kind10 = "" %>
-      없음
-  <% end %>
-</p>
-<% if @bool %>
-  <p>
-    [11]
-    <% if @kind11 == "3" %>
-        <% @json11 %>
-        <%= @sequence11 %>번 정류장|
-        <%= @stationName11 %>|
-        <%= @eventDate11 %>|
-        도착|
-        <%= @useTime11 %>분|
-        <%= @carNumber11 %>
-    <% elsif @kind11 == "2" %>
-        <% @json11 %>
-        <%= @sequence11 %>번 정류장|
-        <%= @stationName11 %>|
-        <%= @eventDate11 %>|
-        출발|
-        <%= @useTime11 %>분|
-        <%= @carNumber11 %>
-    <% elsif @kind11 = "" %>
-        없음
-    <% end %>
-  </p>
-<% else %>
+<% unless false %>
+<div class="bus_all">
+  <div class="bus_line_container">
+    <div class="bus_line">
+      <div class="bus_station_section1">
+        <div class="s2 bus_dep4">
+          <div class="bus_ic_dep">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+        <div class="s1 bus_station_sequence6">
+          <%= image_tag 'skkbus_ic_left.png', class: 'sequence6_arrow' %>
+          <div class="bus_ic_station">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+        <!-- /img 해주어야 함 -->
+        <div class="s2 bus_dep6">
+          <div class="bus_ic_dep">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+      </div>
+      <div class="bus_station_section2">
+        <div class="s1 bus_station_sequence4">
+          <%= image_tag 'skkbus_ic_left.png', class: 'sequence4_arrow' %>
+          <div class="bus_ic_station">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+        <div class="s1 bus_station_sequence8">
+          <%= image_tag 'skkbus_ic_left.png', class: 'sequence8_arrow' %>
+          <div class="bus_ic_station">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+      </div>
+      <div class="bus_station_section3">
+        <div class="s2 bus_dep3">
+          <div class="bus_ic_dep">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+        <div class="s2 bus_dep8">
+          <div class="bus_ic_dep">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+      </div>
+      <div class="bus_station_section4">
+        <div class="s1 bus_station_sequence3">
+          <%= image_tag 'skkbus_ic_left.png', class: 'sequence4_arrow' %>
+          <div class="bus_ic_station">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+        <div class="s1 bus_station_sequence9">
+          <%= image_tag 'skkbus_ic_left.png', class: 'sequence8_arrow' %>
+          <div class="bus_ic_station">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+      </div>
+      <div class="bus_station_section5">
+        <div class="s2 bus_dep2">
+          <div class="bus_ic_dep">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+        <div class="s2 bus_dep9">
+          <div class="bus_ic_dep">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+      </div>
+      <div class="bus_station_section6">
+        <div class="s1 bus_station_sequence2">
+          <%= image_tag 'skkbus_ic_left.png', class: 'sequence4_arrow' %>
+          <div class="bus_ic_station">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+        <div class="s1 bus_station_sequence10">
+          <%= image_tag 'skkbus_ic_left.png', class: 'sequence8_arrow' %>
+          <div class="bus_ic_station">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+      </div>
+      <div class="bus_station_section7">
+        <div class="s2 bus_dep1">
+          <div class="bus_ic_dep">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+        <div class="s1 bus_station_sequence1">
+          <%= image_tag 'skkbus_ic_left.png', class: 'sequence1_arrow' %>
+          <div class="bus_ic_station">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+        <div class="s2 bus_dep10">
+          <div class="bus_ic_dep">
+            <%= image_tag 'skkbus_ic_bus3.png' %>
+            <span id="#" class="bus_number1">10가 4500</span><br>
+            <span id="#" class="bus_number2">10가 4500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
 
-<a href="/schedule">인사캠 버스 운영시간 보기</a>
+<% unless @overlap %>
+  <div class="bus_info_container">
+    <div class="bus_info">
+      <div class="bus_info_section1">
+        <div class="bus_info_name1">
+          <p id="#" class="info_name">농구장</p>
+          <p id="#" class="info_arrival"><%= @expect1 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+      </div>
+      <div class="bus_info_section2">
+        <div class="bus_info_name8">
+          <p id="#" class="info_name">정문(하교)</p>
+          <p id="#" class="info_arrival"><%= @expect2 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+        <div class="bus_info_name2">
+          <p id="#" class="info_name">600주년 기념관</p>
+          <p id="#" class="info_arrival"><%= @expect3 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+      </div>
+      <div class="bus_info_section3">
+        <div class="bus_info_name7">
+          <p id="#" class="info_name">정문(등교)</p>
+          <p id="#" class="info_arrival"><%= @expect4 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+        <div class="bus_info_name3">
+          <p id="#" class="info_name">학생회관 앞</p>
+          <p id="#" class="info_arrival"><%= @expect5 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+      </div>
+      <div class="bus_info_section4">
+        <div class="bus_info_name6">
+          <p id="#" class="info_name">혜화로터리</p>
+          <p id="#" class="info_arrival"><%= @expect6 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+        <div class="bus_info_name4">
+          <p id="#" class="info_name">맥도날드 앞</p>
+          <p id="#" class="info_arrival"><%= @expect7 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+      </div>
+      <div class="bus_info_section5">
+        <div class="bus_info_name5">
+          <p id="#" class="info_name">혜화역</p>
+          <p id="#" class="info_arrival"><%= @expect8 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+      </div>
+      <div class="button_refresh">
+        <a href="/main"><%= image_tag 'skkbus_ic_refresh.png' %></a>
+      </div>
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="bus_info_container">
+    <div class="bus_info">
+      <div class="bus_info_section1">
+        <div class="bus_info_name1">
+          <p id="#" class="info_name">농구장</p>
+          <p id="#" class="info_arrival"><%= @expect1 %>분 후 도착</p>
+          <p id="#" class="info_arrival"><%= @expect2 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+      </div>
+      <div class="bus_info_section2">
+        <div class="bus_info_name8">
+          <p id="#" class="info_name">정문(하교)</p>
+          <p id="#" class="info_arrival"><%= @expect3 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+        <div class="bus_info_name2">
+          <p id="#" class="info_name">600주년 기념관</p>
+          <p id="#" class="info_arrival"><%= @expect4 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+      </div>
+      <div class="bus_info_section3">
+        <div class="bus_info_name7">
+          <p id="#" class="info_name">정문(등교)</p>
+          <p id="#" class="info_arrival"><%= @expect5 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+        <div class="bus_info_name3">
+          <p id="#" class="info_name">학생회관 앞</p>
+          <p id="#" class="info_arrival"><%= @expect6 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+      </div>
+      <div class="bus_info_section4">
+        <div class="bus_info_name6">
+          <p id="#" class="info_name">혜화로터리</p>
+          <p id="#" class="info_arrival"><%= @expect7 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+        <div class="bus_info_name4">
+          <p id="#" class="info_name">맥도날드 앞</p>
+          <p id="#" class="info_arrival"><%= @expect8 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+      </div>
+      <div class="bus_info_section5">
+        <div class="bus_info_name5">
+          <p id="#" class="info_name">혜화역</p>
+          <p id="#" class="info_arrival"<%= @expect9 %>분 후 도착</p>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </div>
+      </div>
+      <div class="button_refresh">
+        <a href="/main"><%= image_tag 'skkbus_ic_refresh.png' %></a>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+  <div class="container">
+    <!-- Navigation_Bottom -->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/schedule">인사캠 셔틀 운영시간 보기</a>
+        </div>
+      </div>
+    </nav>
+  </div>
