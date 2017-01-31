@@ -1,7 +1,11 @@
 class BusesController < ApplicationController
   def index
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-    if response[10] == nil
+
+    if response[0]["CarNumber"] == "" and response[1]["CarNumber"] == "" and response[2]["CarNumber"] == "" and response[3]["CarNumber"] == "" and response[4]["CarNumber"] == "" and response[5]["CarNumber"] == "" and response[6]["CarNumber"] == "" and response[7]["CarNumber"] == "" and response[8]["CarNumber"] == "" and response[9]["CarNumber"] == ""
+      redirect_to '/schedule'
+
+    elsif response[10] == nil
       @overlap = false
       for n in [1,2,3,4,5,6,7,8,9,10]
         @json = response[n-1],
@@ -32,7 +36,8 @@ class BusesController < ApplicationController
 
   def temp
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-    if response[10] == nil
+    if response
+    elsif response[10] == nil
       @overlap = false
       for n in [1,2,3,4,5,6,7,8,9,10]
         @json = response[n-1],
