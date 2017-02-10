@@ -1,11 +1,17 @@
 class EstimationsController < ApplicationController
   def index
-    @maeul_global_walk = 2
-    #1 교시  (8시, 9시)
+    #1교시 (8시, 9시)
     if Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "08" or Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "09"
-      @maeul_global = 7
-      @maeul_others = 8
-      # elsif
+      @maeul_bus  = [7,8,8,8,8,8,8]
+      @maeul_walk = [2,4,5,5,5,7,7]
+    #2교시 (10시, 11시)
+    elsif Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "10" or Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "11"
+      @maeul_bus  = [7,8,8,8,8,8,8]
+      @maeul_walk = [2,4,5,5,5,7,7]
+    #나머지
+    else
+      @maeul_bus  = [7,8,8,8,8,8,8]
+      @maeul_walk = [2,4,5,5,5,7,7]
     end
 
 

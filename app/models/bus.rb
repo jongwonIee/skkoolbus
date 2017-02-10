@@ -15,8 +15,6 @@ class Bus < ApplicationRecord
         ((Bus.find(1).s10 + Bus.find(2).s10 + Bus.find(3).s10) / 3)
     ]
 
-    # @array = [1,2,3,4,5,6,7,8,9,10]
-
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
     count = 0
     for l in 1..10
@@ -49,8 +47,6 @@ class Bus < ApplicationRecord
         ((Bus.find(1).s9 + Bus.find(2).s9 + Bus.find(3).s9) / 3),
         ((Bus.find(1).s10 + Bus.find(2).s10 + Bus.find(3).s10) / 3)
     ]
-
-    # @array = [1,2,3,4,5,6,7,8,9,10]
 
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
     count = 0

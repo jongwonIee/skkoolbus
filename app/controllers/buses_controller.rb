@@ -1,67 +1,39 @@
 class BusesController < ApplicationController
-  def index
-    response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-
-    if response[0]["CarNumber"] == "" and response[1]["CarNumber"] == "" and response[2]["CarNumber"] == "" and response[3]["CarNumber"] == "" and response[4]["CarNumber"] == "" and response[5]["CarNumber"] == "" and response[6]["CarNumber"] == "" and response[7]["CarNumber"] == "" and response[8]["CarNumber"] == "" and response[9]["CarNumber"] == ""
+  def index2
+    #gem 이 작동시키도록 수정
+    api
+    if @carNumber[0] == "" and @carNumber[1] == "" and @carNumber[2] == "" and @carNumber[3] == "" and @carNumber[4] == "" and @carNumber[5] == "" and @carNumber[6] == "" and @carNumber[7] == "" and @carNumber[8] == "" and @carNumber[9] == ""
       redirect_to '/schedule'
-
-    elsif response[10] == nil
-      @overlap = false
-      for n in [1,2,3,4,5,6,7,8,9,10]
-        @json = response[n-1],
-            instance_variable_set("@json#{n}", response[n-1]),
-            instance_variable_set("@sequence#{n}", response[n-1]["Sequence"]),
-            instance_variable_set("@stationName#{n}", response[n-1]["StationName"]),
-            instance_variable_set("@eventDate#{n}", response[n-1]["EventDate"]),
-            instance_variable_set("@kind#{n}", response[n-1]["Kind"]),
-            instance_variable_set("@useTime#{n}", response[n-1]["usetime"]),
-            instance_variable_set("@carNumber#{n}", response[n-1]["CarNumber"]),
-            instance_variable_set("@expect#{n}", Bus.expect(n))
-      end
-    else #overlap
-      @overlap = true
-      for n in [1,2,3,4,5,6,7,8,9,10,11]
-        @json = response[n-1],
-            instance_variable_set("@json#{n}", response[n-1]),
-            instance_variable_set("@sequence#{n}", response[n-1]["Sequence"]),
-            instance_variable_set("@stationName#{n}", response[n-1]["StationName"]),
-            instance_variable_set("@eventDate#{n}", response[n-1]["EventDate"]),
-            instance_variable_set("@kind#{n}", response[n-1]["Kind"]),
-            instance_variable_set("@useTime#{n}", response[n-1]["usetime"]),
-            instance_variable_set("@carNumber#{n}", response[n-1]["CarNumber"]),
-            instance_variable_set("@expect#{n}", Bus.expect2(n))
-      end
     end
   end
 
-  def temp
+  def api
+    #api call - 초단위 갱신
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-    if response
-    elsif response[10] == nil
+    @json = []
+    @sequence = []
+    @kind = []
+    @carNumber = []
+    @expect = []
+    #if no overlap
+    if response[10].nil?
       @overlap = false
       for n in [1,2,3,4,5,6,7,8,9,10]
         @json = response[n-1],
-            instance_variable_set("@json#{n}", response[n-1]),
-            instance_variable_set("@sequence#{n}", response[n-1]["Sequence"]),
-            instance_variable_set("@stationName#{n}", response[n-1]["StationName"]),
-            instance_variable_set("@eventDate#{n}", response[n-1]["EventDate"]),
-            instance_variable_set("@kind#{n}", response[n-1]["Kind"]),
-            instance_variable_set("@useTime#{n}", response[n-1]["usetime"]),
-            instance_variable_set("@carNumber#{n}", response[n-1]["CarNumber"]),
-            instance_variable_set("@expect#{n}", Bus.expect(n))
+        @sequence << response[n-1]["Sequence"],
+        @kind << response[n-1]["Kind"],
+        @carNumber << response[n-1]["CarNumber"],
+        @expect << Bus.expect(n)
       end
+      #if overlap
     else #overlap
       @overlap = true
       for n in [1,2,3,4,5,6,7,8,9,10,11]
         @json = response[n-1],
-            instance_variable_set("@json#{n}", response[n-1]),
-            instance_variable_set("@sequence#{n}", response[n-1]["Sequence"]),
-            instance_variable_set("@stationName#{n}", response[n-1]["StationName"]),
-            instance_variable_set("@eventDate#{n}", response[n-1]["EventDate"]),
-            instance_variable_set("@kind#{n}", response[n-1]["Kind"]),
-            instance_variable_set("@useTime#{n}", response[n-1]["usetime"]),
-            instance_variable_set("@carNumber#{n}", response[n-1]["CarNumber"]),
-            instance_variable_set("@expect#{n}", Bus.expect2(n))
+        @sequence << response[n-1]["Sequence"],
+        @kind << response[n-1]["Kind"],
+        @carNumber << response[n-1]["CarNumber"],
+        @expect << Bus.expect2(n)
       end
     end
   end
