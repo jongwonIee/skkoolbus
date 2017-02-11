@@ -5,6 +5,22 @@ class BusesController < ApplicationController
     if @carNumber[0] == "" and @carNumber[1] == "" and @carNumber[2] == "" and @carNumber[3] == "" and @carNumber[4] == "" and @carNumber[5] == "" and @carNumber[6] == "" and @carNumber[7] == "" and @carNumber[8] == "" and @carNumber[9] == ""
       redirect_to '/schedule'
     end
+
+    if @overlap
+      redirect_to '/overlap'
+    end
+  end
+
+  def index_overlap
+    #gem 이 작동시키도록 수정
+    api
+    if @carNumber[0] == "" and @carNumber[1] == "" and @carNumber[2] == "" and @carNumber[3] == "" and @carNumber[4] == "" and @carNumber[5] == "" and @carNumber[6] == "" and @carNumber[7] == "" and @carNumber[8] == "" and @carNumber[9] == ""
+      redirect_to '/schedule'
+    end
+
+    unless @overlap
+      redirect_to '/main'
+    end
   end
 
   def api
@@ -25,7 +41,7 @@ class BusesController < ApplicationController
         @carNumber << response[n-1]["CarNumber"],
         @expect << Bus.expect(n)
       end
-      #if overlap
+    #if overlap
     else #overlap
       @overlap = true
       for n in [1,2,3,4,5,6,7,8,9,10,11]

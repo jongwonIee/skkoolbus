@@ -1,5 +1,10 @@
 class Bus < ApplicationRecord
+  #Bus.s1~s10 업데이트 로직
+  def self.track
 
+  end
+
+  #overlap x
   def self.expect(n)
 
     @array = [
