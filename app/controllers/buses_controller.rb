@@ -45,11 +45,11 @@ class BusesController < ApplicationController
     else #overlap
       @overlap = true
       for n in [1,2,3,4,5,6,7,8,9,10,11]
-        @json = response[n-1],
-        @sequence << response[n-1]["Sequence"],
-        @kind << response[n-1]["Kind"],
-        @carNumber << response[n-1]["CarNumber"],
-        @expect << Bus.expect2(n)
+        @json = response[n],
+        @sequence << response[n]["Sequence"],
+        @kind << response[n]["Kind"],
+        @carNumber << response[n]["CarNumber"],
+        @expect << Bus.expect2(n-1)
       end
     end
   end
