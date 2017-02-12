@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'schedule' => 'buses#show'
   get 'info' => 'buses#info'
   get 'estimations/index'
+  get '/modal' => 'buses#modal'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

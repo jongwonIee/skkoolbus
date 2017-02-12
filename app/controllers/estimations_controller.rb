@@ -19,35 +19,28 @@ class EstimationsController < ApplicationController
     #택시 혜화역 -> 각 건물
       #1교시 (8시, 9시)
     if Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "08" or Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "09"
-      @h_taxi       = [11,13,13,14]
-      @h_taxi_walk  = [1,1,1,1]
+      @h_taxi       = [12,14,14,15]
       #2교시 (10시, 11시)
     elsif Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "10" or Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "11"
-      @h_taxi       = [9,11,11,12]
-      @h_taxi_walk  = [1,1,1,1]
+      @h_taxi       = [10,12,12,13]
       #나머지시간
     else
-      @h_taxi       = [8,10,10,11]
-      @h_taxi_walk  = [1,1,1,1]
+      @h_taxi       = [9,11,11,12]
     end
     #택시 맥도날드 -> 각 건물
       #1교시 (8시, 9시)
     if Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "08" or Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "09"
-      @m_taxi       = [5,7,7,8]
-      @m_taxi_walk  = [1,1,1,1]
+      @m_taxi       = [6,8,8,9]
       #2교시 (10시, 11시)
     elsif Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "10" or Time.now.in_time_zone("Asia/Seoul").strftime("%I") == "11"
-      @m_taxi       = [4,6,6,7]
-      @m_taxi_walk  = [1,1,1,1]
+      @m_taxi       = [5,7,7,8]
       #나머지시간
     else
-      @m_maeul_bus  = [4,6,6,7]
-      @m_maeul_walk = [1,1,1,1]
+      @m_taxi       = [6,8,8,9]
     end
     #이하 시간무관
     #택시 정문 -> 각 건물
-      @j_maeul_bus  = [2,4,4,5]
-      @j_maeul_walk = [1,1,1,1]
+      @j_taxi       = [3,5,5,6]
 
     #걸어서
       @h_walk       = [11,14,15,17]

@@ -1,4 +1,5 @@
 class BusesController < ApplicationController
+  include BusesHelper
   def index
     if @overlap
       redirect_to '/overlap'
@@ -6,6 +7,10 @@ class BusesController < ApplicationController
       #gem 이 작동시키도록 수정
       apitest
     end
+    
+    #estimations
+    estimations
+    
   end
 
   def index_overlap
@@ -15,6 +20,9 @@ class BusesController < ApplicationController
       #gem 이 작동시키도록 수정
       apitest
     end
+    
+    #estimations
+    estimations
   end
 
   def api
