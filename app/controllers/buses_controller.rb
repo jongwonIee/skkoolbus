@@ -4,7 +4,7 @@ class BusesController < ApplicationController
       redirect_to '/overlap'
     else
       #gem 이 작동시키도록 수정
-      api
+      apitest
     end
   end
 
@@ -13,7 +13,7 @@ class BusesController < ApplicationController
       redirect_to '/main'
     else
       #gem 이 작동시키도록 수정
-      api
+      apitest
     end
   end
 
@@ -54,5 +54,14 @@ class BusesController < ApplicationController
         end
       end
     end
+  end
+
+  def apitest
+    @overlap = false
+    @json = []
+    @sequence =  ["","","","","","","","","",""]
+    @kind =      ["2","","","2","3","3","","","",""]
+    @carNumber = ["1","","","2","3","4","","","",""]
+    @expect =    [1,1,1,1,1,1,1,1,1,1]
   end
 end
