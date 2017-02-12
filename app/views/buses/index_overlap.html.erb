@@ -32,15 +32,18 @@
             <% end %>
           </div>
         </div>
+        <!-- 정차소에 겹쳐져있는 경우 [0,2] and [1,2] begin -->
         <div class="s1 bus_station_sequence1">
           <%= image_tag 'skkbus_ic_left.png', class: 'sequence1_arrow' %>
           <div class="bus_ic_station">
-            <% if @carNumber[0].present? and @kind[0] == "2" %>
+            <% if @carNumber[0].present? and @kind[0] == "2" and @carNumber[1].present? and @kind[1] == "2" %>
                 <%= image_tag 'skkbus_ic_bus3.png' %>
                 <span id="#" class="bus_number1"><%= @carNumber[0] %></span>
+                <span id="#" class="bus_number1"><%= @carNumber[1] %></span>
             <% end %>
           </div>
         </div>
+        <!-- 정차소에 겹쳐져있는 경우 [0,2] and [1,2] end -->
         <div class="s2 bus_dep10">
           <div class="bus_ic_dep">
             <% if @carNumber[9].present? and @kind[9] == "3" %>
@@ -220,7 +223,7 @@
       <div class="bus_info_section4">
         <div class="bus_info_name4">
           <p id="#" class="info_name">혜화로터리</p>
-          <p id="#" class="info_arrival"><%= @expect[6] %>분 후 도착</p>
+          <p id="#" class="info_arrival"><%= @expect[4] %>분 후 도착</p>
           <div class="info_detail"><p>자세히보기</p></div>
         </div>
         <div class="bus_info_name8">
