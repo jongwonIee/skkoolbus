@@ -5,7 +5,7 @@ class BusesController < ApplicationController
       redirect_to '/overlap'
     else
       #gem 이 작동시키도록 수정
-      api
+      apitest
     end
     
     #estimations
@@ -18,7 +18,7 @@ class BusesController < ApplicationController
       redirect_to '/main'
     else
       #gem 이 작동시키도록 수정
-      api
+      apitest
     end
     
     #estimations
