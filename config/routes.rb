@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'main' => 'buses#index'
   get 'overlap' => 'buses#index_overlap'
   get 'schedule' => 'buses#show'
-  get 'info' => 'buses#info'
   get 'estimations/index'
   get '/modal' => 'buses#modal'
 
