@@ -1,0 +1,7 @@
+<% stations = Predict.first.stations %>
+<% for i in (1..10) %>
+<p><%= i %><%= stations[i] %></p>
+<% end %>
+<% for x in (1..10) %>
+<p><%=stations[x][:time_arrival]%></p>
+<% end %>
