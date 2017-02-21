@@ -147,9 +147,9 @@
                   <%= image_tag 'skkbus_ic_bus3.png' %>
                   <span id="#" class="bus_number1"><%= @carNumber[8] %></span>
               <% end %>
-          </div>
-        </a>
-      </div>
+            </div>
+          </a>
+        </div>
     </div>
     <div class="bus_station_section5">
       <div class="s2 bus_dep3">
@@ -298,13 +298,11 @@
         </a>
       </div>
     </div>
-    <div class="button_refresh hvr-push">
-      <a href="/"><%= image_tag 'skkbus_ic_refresh.png' %></a>
-    </div>
+      <%= link_to (image_tag('skkbus_ic_refresh.png')), main_path, class:'button_refresh hvr-push' %>
   </div>
 </div>
-
 </div>
+
 
 
 
