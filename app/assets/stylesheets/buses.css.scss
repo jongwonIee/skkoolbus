@@ -1,4 +1,96 @@
 //index
+/* The side navigation menu */
+
+.info_message {
+  display:inline-block;
+  text-align: left;
+  width: 310px;
+}
+
+.info_title{
+  color: white;
+  margin-top: 40px;
+}
+
+.info_message p{
+  font-size: 13px;
+}
+
+.title_line{
+  width: 40px;
+  border-bottom: 2px solid white;
+  margin-top: 15px;
+}
+
+.info_howto{
+  margin-top: 40px;
+  color: white;
+}
+
+.info_message h4{
+  margin-bottom:20px;
+}
+
+.info_howto p{
+  font-size: 12px;
+  margin: 10px 0 10px 0;
+}
+
+.info_contact{
+  margin-top: 40px;
+  color: white;
+}
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 900; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+.navbar-default {
+  border: none!important;
+
+}
 
 .nav_ic_div{
   width: 100%;
@@ -73,11 +165,10 @@ ul li{
 .bus_line{
   margin-top: 90px;
   width: 300px;
-  height: 400px;
+  height: 370px;
   border: 2px solid #c4c5c7;
   border-radius: 50px;
   display: inline-block;
-  z-index: 15;
   box-sizing: border-box;
 }
 
@@ -100,7 +191,7 @@ ul li{
 .bus_station_section3{
   clear: both;
   float: left;
-  margin-top: 23px;
+  margin-top: 15px;
   width: 337px;
   margin-left: -20px;
 }
@@ -108,7 +199,7 @@ ul li{
 .bus_station_section4{
   clear: both;
   float: left;
-  margin-top: 23px;
+  margin-top: 15px;
   width: 337px;
   margin-left: -20px;
 }
@@ -118,7 +209,7 @@ ul li{
   float: left;
   width: 337px;
   margin-left: -20px;
-  margin-top: 23px;
+  margin-top: 15px;
 }
 
 .bus_station_section6{
@@ -126,22 +217,22 @@ ul li{
   float: left;
   width: 337px;
   margin-left: -20px;
-  margin-top: 23px;
+  margin-top: 15px;
 }
 
 .bus_station_section7{
   clear: both;
   float: left;
   width: 250px;
-  margin-top: 18px;
+  margin-top: 20px;
   margin-left: 20px;
 
 }
 
 .s1{
   float: left;
-  width: 40px;
-  height: 40px;
+  width: 41px;
+  height: 41px;
   position: relative;
   border: 2px solid #c4c5c7;
   border-radius: 50%;
@@ -149,8 +240,8 @@ ul li{
 
 .s2{
   float: left;
-  width: 40px;
-  height: 40px;
+  width: 41px;
+  height: 41px;
   position: relative;
   /*border: 2px solid #c4c5c7;
   border-radius: 50%;*/
@@ -262,6 +353,7 @@ ul li{
 .bus_station_sequence1{
   margin-left: 65px;
   background-color: #ffffff;
+
 }
 
 .sequence1_arrow{
@@ -272,6 +364,7 @@ ul li{
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);;
+
 }
 
 .bus_dep4{
@@ -297,6 +390,7 @@ ul li{
 
 .bus_station_sequence2{
   background-color: #ffffff;
+
 }
 
 .sequence2_arrow{
@@ -307,12 +401,14 @@ ul li{
   -o-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);;
+
 }
 
 
-.bus_station_sequence8{
+.bus_station_sequence10{
   float: right;
   background-color: #ffffff;
+
 }
 
 .sequence10_arrow{
@@ -323,38 +419,44 @@ ul li{
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);;
+
 }
 
 .bus_station_sequence3{
   background-color: #ffffff;
+
 }
 
 .bus_station_sequence9{
   float: right;
   background-color: #ffffff;
+
 }
 
 
 .bus_station_sequence4{
   background-color: #ffffff;
+
 }
 
-.bus_station_sequence10{
+.bus_station_sequence8{
   float: right;
   background-color: #ffffff;
+
 }
 
 
 .bus_station_sequence6{
   background-color: #ffffff;
   margin-left: 65px;
+
 }
 
 .sequence6_arrow{
   width: 37px;
   height: 37px;
   position:relative;
-  z-index:25;
+
 }
 
 
@@ -362,108 +464,166 @@ ul li{
   clear: both;
   text-align: center;
   position: relative;
-  z-index: 50;
   margin-top: -494px;
 }
 
 .bus_info{
   clear: both;
   margin-top: 90px;
-  width: 300px;
-  height: 400px;
+  width: 250px;
+  height: 370px;
   /*border: 2px solid red;*/
   border-radius: 50px;
   display: inline-block;
   box-sizing: border-box;
+  z-index: 50;
 }
+
+/*info_short start*/
 
 .bus_info_section1{
   clear: both;
-  margin-top: 36px;
+  margin-top: 70px;
   text-align: center;
+  position: relative;
 }
 
 .bus_info_section2{
   margin-top: -25px;
   float: left;
   position: relative;
-  width:300px;
   box-sizing: border-box;
+  text-align: center;
+  width: inherit;
 }
 
 .bus_info_section3{
   clear:both;
-  margin-top: 65px;
+  margin-top: 50px;
   float: left;
   position: relative;
-  width:300px;
   box-sizing: border-box;
+  z-index: 60;
+  text-align: center;
+  width: inherit;
 }
 
 .bus_info_section4{
   clear:both;
-  margin-top: 65px;
+  margin-top: 45px;
   float: left;
   position: relative;
-  width: 300px;
   box-sizing: border-box;
+  z-index: 60;
+  text-align: center;
+  width: inherit;
 }
 
 .bus_info_section5{
   clear: both;
   float: left;
-  margin-top: 75px;
+  margin-top: 80px;
   text-align: center;
   position: relative;
-  width: 300px;
   box-sizing: border-box;
+  z-index: 60;
+  text-align: center;
+  width: inherit;
 }
+
+/*info_short end*/
+
+
+/*info_orininal
+.bus_info_section1{
+    clear: both;
+    margin-top: 36px;
+    text-align: center;
+    position: relative;
+    z-index: 60;
+}
+
+.bus_info_section2{
+    margin-top: -15px;
+    float: left;
+    position: relative;
+    width:300px;
+    box-sizing: border-box;
+    z-index: 53;
+}
+
+.bus_info_section3{
+    clear:both;
+    margin-top: 65px;
+    float: left;
+    position: relative;
+    width:300px;
+    box-sizing: border-box;
+}
+
+.bus_info_section4{
+    clear:both;
+    margin-top: 65px;
+    float: left;
+    position: relative;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.bus_info_section5{
+    clear: both;
+    float: left;
+    margin-top: 65px;
+    text-align: center;
+    position: relative;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+*/
 
 .bus_info_name1{
   width: 90px;
   display: inline-block;
+  z-index: 60;
 }
 
 .bus_info_name2{
   float: left;
   width: 90px;
   position:relative;
-  margin-left: 25px;
+  z-index: 53;
 }
 
 .bus_info_name10{
   float: right;
   width: 90px;
   position:relative;
-  margin-right: 25px;
+  z-index: 53;
 }
 
 .bus_info_name3{
   float: left;
   width: 90px;
   position:relative;
-  margin-left: 25px;
 }
 
 .bus_info_name9{
   float: right;
   width: 90px;
   position:relative;
-  margin-right: 25px;
 }
 
 .bus_info_name4{
   float: left;
   width: 90px;
   position:relative;
-  margin-left: 25px;
 }
 
 .bus_info_name8{
   float: right;
   width: 90px;
   position:relative;
-  margin-right: 25px;
 }
 
 .bus_info_name6{
@@ -475,6 +635,11 @@ ul li{
 .info_name{
   margin: 0px;
   font-size: 12px;
+  color: #595c60;
+}
+
+.info_name a{
+  color: #595c60;
 }
 
 .info_arrival{
@@ -503,14 +668,58 @@ ul li{
   height: 70px;
   position: relative;
   float: left;
-  top: -50px;
+  top: -60px;
   left: 250px;
+  margin-left: -30px;
 }
 
 .button_refresh img{
   width: 65px;
   height: 65px;
 }
+
+/* Push */
+@-webkit-keyframes hvr-push {
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes hvr-push {
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.hvr-push {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+
+.hvr-push:hover, .hvr-push:focus, .hvr-push:active {
+  -webkit-animation-name: hvr-push;
+  animation-name: hvr-push;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
 
 
 //show
