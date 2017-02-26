@@ -1,8 +1,13 @@
+
 @media all and (min-width : 1000px) {
 
   .table_long {
     position: relative;
     width: 50%; height: 100%; font-size: 11px; text-align: left;
+  }
+
+  td {
+    font-size: 14px;
   }
 
   .padding_bottom {
@@ -424,6 +429,10 @@
 }
 
 @media all and (min-width : 691px) and (max-width : 999px) {
+
+  td {
+    font-size: 13px;
+  }
 
   .table_long {
     position: relative;
