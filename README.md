@@ -12,3 +12,5 @@ expectation db stack
 server
 
 android
+
+Rails app for skku bus system
