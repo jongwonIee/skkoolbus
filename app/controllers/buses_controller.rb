@@ -26,7 +26,7 @@ class BusesController < ApplicationController
               @sequence << response[n-1],
               @kind << response[n-1]["Kind"],
               @carNumber << response[n-1]["CarNumber"],
-              @expect << Predict.first.stations[n][:time_arrival2]
+              @expect << Predict.first.stations[n][:time_arrival]
         end
         #if overlap
       else #overlap
@@ -37,9 +37,9 @@ class BusesController < ApplicationController
               @kind << response[n-1]["Kind"],
               @carNumber << response[n-1]["CarNumber"],
               if n == 1
-                @expect << Predict.first.stations[n][:time_arrival2]
+                @expect << Predict.first.stations[n][:time_arrival]
               else
-                @expect << Predict.first.stations[n-1][:time_arrival2]
+                @expect << Predict.first.stations[n-1][:time_arrival]
               end
         end
       end
