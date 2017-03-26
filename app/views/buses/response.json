@@ -1,0 +1,115 @@
+// 20170326190026
+// http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp
+
+[
+  {
+    "Sequence": 1,
+    "StationName": "정차소(인문.농구장)",
+    "EventDate": "",
+    "Kind": "2",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": "가1"
+  },
+  {
+    "Sequence": 1,
+    "StationName": "정차소(인문.농구장)",
+    "EventDate": "",
+    "Kind": "",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": "가2"
+  },
+  {
+    "Sequence": 2,
+    "StationName": "학생회관(인문)",
+    "EventDate": "",
+    "Kind": "",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": ""
+  },
+  {
+    "Sequence": 3,
+    "StationName": "정문(인문-하교)",
+    "EventDate": "",
+    "Kind": "2",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": "나"
+  },
+  {
+    "Sequence": 4,
+    "StationName": "혜화로터리(하차지점)",
+    "EventDate": "",
+    "Kind": "",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": ""
+  },
+  {
+    "Sequence": 5,
+    "StationName": "혜화역U턴지점",
+    "EventDate": "",
+    "Kind": "",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": ""
+  },
+  {
+    "Sequence": 6,
+    "StationName": "혜화역(승차장)",
+    "EventDate": "",
+    "Kind": "2",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": "다"
+  },
+  {
+    "Sequence": 7,
+    "StationName": "혜화로터리(경유)",
+    "EventDate": "",
+    "Kind": "",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": ""
+  },
+  {
+    "Sequence": 8,
+    "StationName": "맥도날드 건너편",
+    "EventDate": "",
+    "Kind": "",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": ""
+  },
+  {
+    "Sequence": 9,
+    "StationName": "정문(인문-등교)",
+    "EventDate": "",
+    "Kind": "3",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": "라"
+  },
+  {
+    "Sequence": 10,
+    "StationName": "600주년 기념관",
+    "EventDate": "",
+    "Kind": "",
+    "GpsLongitude": 0,
+    "GpsLatitude": 0,
+    "usetime": 0,
+    "CarNumber": ""
+  }
+]
