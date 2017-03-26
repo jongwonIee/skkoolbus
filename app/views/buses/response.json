@@ -12,16 +12,16 @@
     "usetime": 0,
     "CarNumber": "가1"
   },
-  {
-    "Sequence": 1,
-    "StationName": "정차소(인문.농구장)",
-    "EventDate": "",
-    "Kind": "",
-    "GpsLongitude": 0,
-    "GpsLatitude": 0,
-    "usetime": 0,
-    "CarNumber": "가2"
-  },
+//  {
+//    "Sequence": 1,
+//    "StationName": "정차소(인문.농구장)",
+//    "EventDate": "",
+//    "Kind": "",
+//    "GpsLongitude": 0,
+//    "GpsLatitude": 0,
+//    "usetime": 0,
+//    "CarNumber": "가2"
+//  },
   {
     "Sequence": 2,
     "StationName": "학생회관(인문)",

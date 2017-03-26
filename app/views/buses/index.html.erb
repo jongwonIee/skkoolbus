@@ -1,9 +1,5 @@
 <% if @on %>
-  <% if !@overlap %>
-    <%= render 'normal' %>
-  <% else %>
-    <%= render 'overlap' %>
-  <% end %>
+  <%= render 'on' %>
 <% else %>
   <%= render 'off' %>
 <% end %>
