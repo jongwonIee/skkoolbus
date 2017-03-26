@@ -5,6 +5,5 @@ class Predict < ApplicationRecord
     @stations = c.set_stations
     self.destroy_all
     self.create(stations:@stations)
-    self.create(stations:@stations)
   end
 end

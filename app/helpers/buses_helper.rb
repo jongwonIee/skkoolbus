@@ -24,21 +24,7 @@ module BusesHelper
     return total_time
   end
 
-  def calculate_time_taken(carnumber,station, before_station, type, late)
-    if type == 1
-      time_taken = Time.now - before_station[:time_depart]
-      if late == 0
-        key = :time_taken
-      elsif late == 1
-        key = :time_taken_late
-      end
-      if station[key].size < 3
-        station[key] << time_taken
-      else
-        station[key].shift
-        station[key] << time_taken
-      end
-    elsif type == 2
+  def calculate_time_taken(carnumber,station, before_station)
       @time_stop = station[:time_stop][carnumber]
       @before_stop = before_station[:time_stop][carnumber]
       if @time_stop != nil and @before_stop != nil 
@@ -46,18 +32,17 @@ module BusesHelper
       else 
         time_taken = 1
       end
-      if late == 0
-        key = :time_taken2
-      elsif late == 1
-        key = :time_taken_late2
+
+      if time_taken > 1800 
+        return False
       end
+
       if station[key].size < 3
         station[key] << time_taken
       else
         station[key].shift
         station[key] << time_taken
       end
-    end
     return time_taken
   end
 

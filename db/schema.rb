@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228032617) do
+ActiveRecord::Schema.define(version: 20170326101415) do
 
   create_table "buses", force: :cascade do |t|
     t.integer  "s1"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20170228032617) do
 
   create_table "predicts", force: :cascade do |t|
     t.text     "stations"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "test_schedulers", force: :cascade do |t|
+    t.integer  "count"
+    t.datetime "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

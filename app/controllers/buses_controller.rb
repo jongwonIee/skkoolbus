@@ -25,7 +25,7 @@ class BusesController < ApplicationController
   end
 
   def set_stations
-  @@stations = {1 => {before_car: 0, late: 0, carnumber: '0', time_taken_late: [1], time_taken_late2: [1], time_taken2: [1], existence:0, status: 3, time_depart: Time.now, time_taken: [1], average_time: 0, average_time2: 0, time_spent: [1], average_time_spent: 0, time_stop: {"0" => Time.now}, time_arrival: 0, time_arrival2: 0, calculated:{sequence: 0, type:0}},
+  @stations = {1 => {before_car: 0, late: 0, carnumber: '0', time_taken_late: [1], time_taken_late2: [1], time_taken2: [1], existence:0, status: 3, time_depart: Time.now, time_taken: [1], average_time: 0, average_time2: 0, time_spent: [1], average_time_spent: 0, time_stop: {"0" => Time.now}, time_arrival: 0, time_arrival2: 0, calculated:{sequence: 0, type:0}},
                 2 => {before_car: 0, late: 0, carnumber: '0', time_taken_late: [1], time_taken_late2: [1], time_taken2: [1], existence:0, status: 3, time_depart: Time.now, time_taken: [1], average_time: 0, average_time2: 0, time_spent: [1], average_time_spent: 0, time_stop: {"0" => Time.now}, time_arrival: 0, time_arrival2: 0, calculated:{sequence: 0, type:0}},
                 3 => {before_car: 0, late: 0, carnumber: '0', time_taken_late: [1], time_taken_late2: [1], time_taken2: [1], existence:0, status: 3, time_depart: Time.now, time_taken: [1], average_time: 0, average_time2: 0, time_spent: [1], average_time_spent: 0, time_stop: {"0" => Time.now}, time_arrival: 0, time_arrival2: 0, calculated:{sequence: 0, type:0}},
                 4 => {before_car: 0, late: 0, carnumber: '0', time_taken_late: [1], time_taken_late2: [1], time_taken2: [1], existence:0, status: 3, time_depart: Time.now, time_taken: [1], average_time: 0, average_time2: 0, time_spent: [1], average_time_spent: 0, time_stop: {"0" => Time.now}, time_arrival: 0, time_arrival2: 0, calculated:{sequence: 0, type:0}},
@@ -39,36 +39,40 @@ class BusesController < ApplicationController
   end
   def api_test3
     scheduler = Rufus::Scheduler.new
+    ii = 0
     scheduler.every '1s' do
     puts "Start"
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-    @@stations = Predict.second.stations
+    @stations = Predict.first.stations
     for i in (0..response.size-1) 
       json = response[i]
       carnumber = json["CarNumber"]
       sequence = json["Sequence"]
       current_status = json["Kind"].to_i
-      station = @@stations[sequence]
+      station = @stations[sequence]
       #Check sequence because before_station could be -1
       if sequence == 1
-        before_station = @@stations[10]
+        before_station = @stations[10]
       else
-        before_station = @@stations[sequence - 1]
+        before_station = @stations[sequence - 1]
       end
 
       if carnumber.length > 0 and station[:carnumber].length > 0 and station[:carnumber] != carnumber
         check_stop_time(carnumber, station)
-        taked_time = calculate_time_taken(carnumber,station, before_station, 2, 0)
+        taked_time = calculate_time_taken(carnumber,station, before_station)
         station[:before_car] = station[:carnumber]
+        if taked_time != False
         Car.create(carnumber: carnumber, arrived: Time.now, difference: (Time.now - station[:time_stop][station[:before_car]]), sequence: sequence, taked_time: taked_time)
-
+        end
       elsif carnumber.length == 0 and station[:carnumber].length > 0 
         station[:before_car] = station[:carnumber]
 
       elsif carnumber.length >0 and station[:carnumber].length == 0
         check_stop_time(carnumber, station)
-        taked_time = calculate_time_taken(carnumber,station, before_station, 2, 0)
+        taked_time = calculate_time_taken(carnumber,station, before_station)
+        if taked_time != False
         Car.create(carnumber: carnumber, arrived: Time.now, difference: (Time.now - station[:time_stop][station[:before_car]]), sequence: sequence, taked_time: taked_time)
+        end
       end
       station[:carnumber] = carnumber
       save_status(station, current_status)
@@ -78,13 +82,13 @@ class BusesController < ApplicationController
     for i in (0..response.size-1) 
       json = response[i]
       current_sequence = json["Sequence"]
-      current_station = @@stations[current_sequence]
+      current_station = @stations[current_sequence]
       calculated = current_station[:calculated]
       sequences = (1..10).to_a
       for x in (1..10)
         index = current_sequence - 1 - x
         selected = sequences[index]
-        selected_station = @@stations[selected]
+        selected_station = @stations[selected]
         if selected_station[:carnumber].length > 0
           puts "Current_stations: #{current_sequence}"
           puts "nearest_stations: #{selected}"
@@ -94,15 +98,15 @@ class BusesController < ApplicationController
           nearest_station[:type] = selected_station[:carnumber]
           #Calculated before?
           if calculated[:sequence] == nearest_station[:sequence] and calculated[:type] != nearest_station[:type]
-              total_time = sum_stations(index, current_sequence - 1, sequences, @@stations, 0, 2)
-              @@stations[current_sequence][:time_arrival2] = Time.now + total_time
-              @@stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
-              @@stations[current_sequence][:calculated][:type] = nearest_station[:type]
+              total_time = sum_stations(index, current_sequence - 1, sequences, @stations, 0, 2)
+              @stations[current_sequence][:time_arrival2] = Time.now + total_time
+              @stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
+              @stations[current_sequence][:calculated][:type] = nearest_station[:type]
           elsif calculated[:sequence] != nearest_station[:sequence]
-              total_time = sum_stations(index, current_sequence - 1, sequences, @@stations, 0, 2)
-              @@stations[current_sequence][:time_arrival2] = Time.now + total_time
-              @@stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
-              @@stations[current_sequence][:calculated][:type] = nearest_station[:type]
+              total_time = sum_stations(index, current_sequence - 1, sequences, @stations, 0, 2)
+              @stations[current_sequence][:time_arrival2] = Time.now + total_time
+              @stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
+              @stations[current_sequence][:calculated][:type] = nearest_station[:type]
           end
           puts "calculated[:sequence] : #{calculated[:sequence]}"
           puts "total_time: #{total_time}"
@@ -112,42 +116,55 @@ class BusesController < ApplicationController
         end
       end    
     end
-    @stations = @@stations
-    Predict.second.update_attributes(stations: @@stations)
+    ii += 1
+    if ii%10 == 0
+      TestScheduler.create(count: ii, time: Time.now)
+    end
+    if ii == 60 
+    scheduler.stop
+    scheduler.shutdown
+    puts "IT's end"
+    end
+    @stations = @stations
+    Predict.second.update_attributes(stations: @stations)
     puts "end"
     end
+    puts "It's Completed"
   end
 
   def api_test2
     puts "Start"
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-    @@stations = Predict.second.stations
+    @stations = Predict.first.stations
     for i in (0..response.size-1) 
       json = response[i]
       carnumber = json["CarNumber"]
       sequence = json["Sequence"]
       current_status = json["Kind"].to_i
-      station = @@stations[sequence]
+      station = @stations[sequence]
       #Check sequence becuase before_station could be -1
       if sequence == 1
-        before_station = @@stations[10]
+        before_station = @stations[10]
       else
-        before_station = @@stations[sequence - 1]
+        before_station = @stations[sequence - 1]
       end
 
       if carnumber.length > 0 and station[:carnumber].length > 0 and station[:carnumber] != carnumber
         check_stop_time(carnumber, station)
-        taked_time = calculate_time_taken(carnumber,station, before_station, 2, 0)
+        taked_time = calculate_time_taken(carnumber,station, before_station)
         station[:before_car] = station[:carnumber]
+        if time_taken != False
         Car.create(carnumber: carnumber, arrived: Time.now, difference: (Time.now - station[:time_stop][station[:before_car]]), sequence: sequence, taked_time: taked_time)
-
+        end
       elsif carnumber.length == 0 and station[:carnumber].length > 0 
         station[:before_car] = station[:carnumber]
 
       elsif carnumber.length >0 and station[:carnumber].length == 0
         check_stop_time(carnumber, station)
-        taked_time = calculate_time_taken(carnumber,station, before_station, 2, 0)
+        taked_time = calculate_time_taken(carnumber,station, before_station)
+        if time_taken != False
         Car.create(carnumber: carnumber, arrived: Time.now, difference: (Time.now - station[:time_stop][station[:before_car]]), sequence: sequence, taked_time: taked_time)
+        end
       end
       station[:carnumber] = carnumber
       save_status(station, current_status)
@@ -157,13 +174,13 @@ class BusesController < ApplicationController
     for i in (0..response.size-1) 
       json = response[i]
       current_sequence = json["Sequence"]
-      current_station = @@stations[current_sequence]
+      current_station = @stations[current_sequence]
       calculated = current_station[:calculated]
       sequences = (1..10).to_a
       for x in (1..10)
         index = current_sequence - 1 - x
         selected = sequences[index]
-        selected_station = @@stations[selected]
+        selected_station = @stations[selected]
         if selected_station[:carnumber].length > 0
           puts "Current_stations: #{current_sequence}"
           puts "nearest_stations: #{selected}"
@@ -173,15 +190,15 @@ class BusesController < ApplicationController
           nearest_station[:type] = selected_station[:carnumber]
           #Calculated before?
           if calculated[:sequence] == nearest_station[:sequence] and calculated[:type] != nearest_station[:type]
-              total_time = sum_stations(index, current_sequence - 1, sequences, @@stations, 0, 2)
-              @@stations[current_sequence][:time_arrival2] = Time.now + total_time
-              @@stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
-              @@stations[current_sequence][:calculated][:type] = nearest_station[:type]
+              total_time = sum_stations(index, current_sequence - 1, sequences, @stations, 0, 2)
+              @stations[current_sequence][:time_arrival2] = Time.now + total_time
+              @stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
+              @stations[current_sequence][:calculated][:type] = nearest_station[:type]
           elsif calculated[:sequence] != nearest_station[:sequence]
-              total_time = sum_stations(index, current_sequence - 1, sequences, @@stations, 0, 2)
-              @@stations[current_sequence][:time_arrival2] = Time.now + total_time
-              @@stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
-              @@stations[current_sequence][:calculated][:type] = nearest_station[:type]
+              total_time = sum_stations(index, current_sequence - 1, sequences, @stations, 0, 2)
+              @stations[current_sequence][:time_arrival2] = Time.now + total_time
+              @stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
+              @stations[current_sequence][:calculated][:type] = nearest_station[:type]
           end
           puts "calculated[:sequence] : #{calculated[:sequence]}"
           puts "total_time: #{total_time}"
@@ -191,26 +208,25 @@ class BusesController < ApplicationController
         end
       end    
     end
-    @stations = @@stations
-    Predict.second.update_attributes(stations: @@stations)
+    Predict.second.update_attributes(stations: @stations)
     puts "end"
   end
 
   def api_test
     puts "Start"
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-    @@stations = Predict.first.stations
+    @stations = Predict.first.stations
     for i in (0..response.size-1) 
       json = response[i]
       sequence = json["Sequence"]
       current_status = json["Kind"].to_i
       carnumber = json["CarNumber"]
-      station = @@stations[sequence]
+      station = @stations[sequence]
       #Check sequence becuase before_station could be -1
       if sequence == 1
-        before_station = @@stations[10]
+        before_station = @stations[10]
       else
-        before_station = @@stations[sequence - 1]
+        before_station = @stations[sequence - 1]
       end
       #1. Bus arrived and stop
       if station[:existence] == 0 and current_status == 2
@@ -253,13 +269,13 @@ class BusesController < ApplicationController
     for i in (0..response.size-1) 
       json = response[i]
       current_sequence = json["Sequence"]
-      current_station = @@stations[current_sequence]
+      current_station = @stations[current_sequence]
       calculated = current_station[:calculated]
       sequences = (1..10).to_a
       for x in (1..10)
         index = current_sequence - 1 - x
         selected = sequences[index]
-        selected_station = @@stations[selected]
+        selected_station = @stations[selected]
         if selected_station[:status].to_i == 2 || selected_station[:status].to_i == 3
           puts "Current_stations: #{current_sequence}"
           puts "nearest_stations: #{selected}"
@@ -272,21 +288,21 @@ class BusesController < ApplicationController
             if calculated[:type] == nearest_station[:type]
               #Bye
             elsif calculated[:type] < nearest_station[:type]
-              total_time = sum_stations(index, current_sequence - 1, sequences, @@stations, 3, 1)
-              @@stations[current_sequence][:time_arrival2] =  Time.now + total_time
-              @@stations[current_sequence][:calculated][:type] = 3 
+              total_time = sum_stations(index, current_sequence - 1, sequences, @stations, 3, 1)
+              @stations[current_sequence][:time_arrival2] =  Time.now + total_time
+              @stations[current_sequence][:calculated][:type] = 3 
             end
           elsif calculated[:sequence] != nearest_station[:sequence]
             if nearest_station[:type] == 2
-              total_time = sum_stations(index, current_sequence - 1, sequences, @@stations, 2, 1)
-              @@stations[current_sequence][:time_arrival2] = Time.now + total_time
-              @@stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
-              @@stations[current_sequence][:calculated][:type] = 2
+              total_time = sum_stations(index, current_sequence - 1, sequences, @stations, 2, 1)
+              @stations[current_sequence][:time_arrival2] = Time.now + total_time
+              @stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
+              @stations[current_sequence][:calculated][:type] = 2
             else
-              total_time = sum_stations(index, current_sequence - 1, sequences, @@stations, 3, 1)
-              @@stations[current_sequence][:time_arrival] = Time.now + total_time
-              @@stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
-              @@stations[current_sequence][:calculated][:type] = 3 
+              total_time = sum_stations(index, current_sequence - 1, sequences, @stations, 3, 1)
+              @stations[current_sequence][:time_arrival] = Time.now + total_time
+              @stations[current_sequence][:calculated][:sequence] = nearest_station[:sequence]
+              @stations[current_sequence][:calculated][:type] = 3 
             end
           end
           puts "calculated[:sequence] : #{calculated[:sequence]}"
@@ -297,8 +313,7 @@ class BusesController < ApplicationController
         end
       end    
     end
-    @stations = @@stations
-    Predict.first.update_attributes(stations: @@stations)
+    Predict.first.update_attributes(stations: @stations)
     puts "end"
   end
 def api

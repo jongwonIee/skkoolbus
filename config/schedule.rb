@@ -7,9 +7,9 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
-every 1.minutes do
-   command "cd /Users/Joseph/rails_project/skkoolbus && RAILS_ENV=development bundle exec rake parsing:test --silent"
-end
+#every 1.minutes do
+#   command "cd /Users/Joseph/rails_project/skkoolbus && RAILS_ENV=development bundle exec rake parsing:test --silent"
+#end
 #for i in (1..11) do
 #  every '* 7-20 * * *' do
 #     command "sleep #{i*5}; cd /Users/Joseph/rails_project/skkoolbus && RAILS_ENV=development bundle exec rake parsing:bus --silent"

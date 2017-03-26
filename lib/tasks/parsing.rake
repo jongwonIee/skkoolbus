@@ -8,6 +8,6 @@ namespace :parsing do
 
   task test: :environment do
     parser = BusesController.new
-    parser.scheduler_test
+    parser.api_test3
   end
 end
