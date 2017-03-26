@@ -5,6 +5,56 @@ class BusesController < ApplicationController
     estimations
   end
 
+  def api
+    #api call - by user
+    # response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
+    response =  JSON.parse(File.read('app/views/buses/response.json'))
+    if response[2]["CarNumber"] == "" and response[3]["CarNumber"] == "" and response[4]["CarNumber"] == "" and response[5]["CarNumber"] == "" and response[6]["CarNumber"] == "" and response[7]["CarNumber"] == "" and response[8]["CarNumber"] == "" and response[9]["CarNumber"] == ""
+      @on = false
+    else
+      @on = true
+      @json = []
+      @sequence = []
+      @kind = []
+      @carNumber = []
+      @expect = []
+      #if no overlap
+      if response[10].nil?
+        @overlap = false
+        for n in [1,2,3,4,5,6,7,8,9,10]
+          @json = response[n-1],
+              @sequence << response[n-1],
+              @kind << response[n-1]["Kind"],
+              @carNumber << response[n-1]["CarNumber"],
+              @expect << Predict.first.stations[n][:time_arrival2]
+        end
+        #if overlap
+      else #overlap
+        @overlap = true
+        for n in [1,2,3,4,5,6,7,8,9,10,11]
+          @json = response[n-1],
+              @sequence << response[n-1]["Sequence"],
+              @kind << response[n-1]["Kind"],
+              @carNumber << response[n-1]["CarNumber"],
+              if n == 1
+                @expect << Predict.first.stations[n][:time_arrival2]
+              else
+                @expect << Predict.first.stations[n-1][:time_arrival2]
+              end
+        end
+      end
+    end
+  end
+
+  # def apitest
+  #   @overlap = false
+  #   @json = []
+  #   @sequence =  ["","","","","","","","","",""]
+  #   @kind =      ["2","","","2","3","3","","","",""]
+  #   @carNumber = ["1","","","2","3","4","","","",""]
+  #   @expect =    [1,1,1,1,1,1,1,1,1,1]
+  # end
+
   def set_stations
     @@stations = {1 => {before_car: 0, late: 0, carnumber: '0', time_taken_late: [1], time_taken_late2: [1], time_taken2: [1], existence:0, status: 3, time_depart: Time.now, time_taken: [1], average_time: 0, average_time2: 0, time_spent: [1], average_time_spent: 0, time_stop: {"0" => Time.now}, time_arrival: 0, time_arrival2: 0, calculated:{sequence: 0, type:0}},
                   2 => {before_car: 0, late: 0, carnumber: '0', time_taken_late: [1], time_taken_late2: [1], time_taken2: [1], existence:0, status: 3, time_depart: Time.now, time_taken: [1], average_time: 0, average_time2: 0, time_spent: [1], average_time_spent: 0, time_stop: {"0" => Time.now}, time_arrival: 0, time_arrival2: 0, calculated:{sequence: 0, type:0}},
@@ -100,59 +150,4 @@ class BusesController < ApplicationController
     end
   end
 
-
-  def api
-    #api call - 초단위 갱신
-    # response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-    response =  JSON.parse(File.read('app/views/buses/response.json'))
-    if response[2]["CarNumber"] == "" and response[3]["CarNumber"] == "" and response[4]["CarNumber"] == "" and response[5]["CarNumber"] == "" and response[6]["CarNumber"] == "" and response[7]["CarNumber"] == "" and response[8]["CarNumber"] == "" and response[9]["CarNumber"] == ""
-      @on = false
-    else
-      @on = true
-      #if no overlap
-      if response[10].nil?
-        @json = []
-        @sequence = []
-        @kind = []
-        @carNumber = []
-        @expect = []
-        @overlap = false
-        for n in [1,2,3,4,5,6,7,8,9,10]
-          @json = response[n-1],
-          @sequence << response[n-1],
-          @kind << response[n-1]["Kind"],
-          @carNumber << response[n-1]["CarNumber"],
-          @expect << Predict.first.stations[n][:time_arrival2]
-        end
-      #if overlap
-      else #overlap
-        @json = []
-        @sequence = []
-        @kind = []
-        @carNumber = []
-        @expect = []
-        @overlap = true
-        for n in [1,2,3,4,5,6,7,8,9,10,11]
-          @json = response[n-1],
-          @sequence << response[n-1]["Sequence"],
-          @kind << response[n-1]["Kind"],
-          @carNumber << response[n-1]["CarNumber"],
-          if n == 1
-            @expect << Predict.first.stations[n][:time_arrival2]
-          else
-            @expect << Predict.first.stations[n-1][:time_arrival2]
-          end
-        end
-      end
-    end
-  end
-
-  def apitest
-    @overlap = false
-    @json = []
-    @sequence =  ["","","","","","","","","",""]
-    @kind =      ["2","","","2","3","3","","","",""]
-    @carNumber = ["1","","","2","3","4","","","",""]
-    @expect =    [1,1,1,1,1,1,1,1,1,1]
-  end
 end
