@@ -167,7 +167,7 @@
   }
 
   .bus_line{
-    margin-top: 90px;
+    margin-top: 85px;
     width: 300px;
     height: 370px;
     border: 2px solid #c4c5c7;
@@ -292,7 +292,6 @@
     font-size:10px;
     top: -18px;
     color: #78A31D;
-    display: none;
   }
 
   .bus_dep1{
@@ -419,7 +418,7 @@
   .bus_info{
     clear: both;
     margin-top: 90px;
-    width: 250px;
+    width: 255px;
     height: 370px;
     /*border: 2px solid red;*/
     border-radius: 50px;
@@ -541,21 +540,24 @@
 
   .info_arrival{
     margin: 0px;
-    font-size: 12px;
-    color: #E27225;
+    font-size: 13px;
+    color: #E8802C;
+    letter-spacing: -1.2px;
   }
 
   .info_detail{
-    width:  58px;
-    font-size: 10px;
-    border: 1px solid #878787;
-    border-radius: 5px;
+    width:  62px;
+    padding: 1px;
+    font-weight: 200;
+    border-radius: 2px;
     display: inline-block;
-    color: #878787;
+    color: #ffffff;
+    background-color: #9399a0;
   }
 
   .info_detail p{
     margin: 0px;
+    font-size: 11px;
   }
 
   .button_refresh{
@@ -749,7 +751,7 @@
   }
 
   .bus_line{
-    margin-top: 86px;
+    margin-top: 75px;
     width: 270px;
     height: 370px;
     border: 2px solid #c4c5c7;
@@ -1126,21 +1128,24 @@
 
   .info_arrival{
     margin: 0px;
-    font-size: 12px;
-    color: #E27225;
+    font-size: 13px;
+    color: #E8802C;
+    letter-spacing: -1.2px;
   }
 
   .info_detail{
-    width:  58px;
-    font-size: 10px;
-    border: 1px solid #878787;
-    border-radius: 5px;
+    width:  62px;
+    padding: 1px;
+    font-weight: 200;
+    border-radius: 2px;
     display: inline-block;
-    color: #878787;
+    color: #ffffff;
+    background-color: #9399a0;
   }
 
   .info_detail p{
     margin: 0px;
+    font-size: 11px;
   }
 
   .button_refresh{
