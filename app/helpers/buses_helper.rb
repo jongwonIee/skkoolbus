@@ -1,11 +1,7 @@
 module BusesHelper
-  def sum_stations(from, to, sequences, stations, type, version)
+  def sum_stations(from, to, sequences, stations)
     total_time = 0
-    if version == 1
-      key = :average_time
-    elsif version == 2
-      key = :average_time2
-    end
+    key = :average_time
     if from < -1
       for between in sequences[11+from .. 9]
         total_time += stations[between][key]
@@ -17,9 +13,6 @@ module BusesHelper
       for between in sequences[from+1 .. to]
         total_time += stations[between][key]
       end
-    end
-    if type == 2
-      total_time += stations[sequences[from]][:average_time_spent]
     end
     return total_time
   end
