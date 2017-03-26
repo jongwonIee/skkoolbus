@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'rufus-scheduler'
 gem 'whenever', :require => false
 gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

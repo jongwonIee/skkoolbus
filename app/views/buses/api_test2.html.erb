@@ -1,0 +1,22 @@
+<% arr_stations = ['정차소(인문.농구장)','학생회관(인문)','정문(인문-하교)','혜화로터리(하차지점)','혜화역U턴지점','혜화역(승차장)','혜화로터리(경유)','맥도날드건너편','정문(인문-등교)','600주년기념관']%>
+<% stations = Predict.second.stations %>
+<% for i in (1..10) %>
+<p><%= i %><%=arr_stations[i-1] %><%= stations[i] %></p>
+<% end %>
+<% for x in (1..10) %>
+<p>
+<%= arr_stations[x-1] %>
+<%= stations[x][:time_arrival2]%>
+</p>
+<% if stations[x][:carnumber].length > 0 %>
+<p>
+<%= x %>
+<%= stations[x][:carnumber] %> 
+<% if x != 10 %>
+<%= (stations[x+1][:time_arrival2] - Time.now).round %>
+<% else %>
+<%= (stations[1][:time_arrival2] - Time.now).round%>
+<% end %>
+</p>
+<% end %>
+<% end %>
