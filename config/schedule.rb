@@ -16,9 +16,13 @@
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
 # end
-for i in (1..11) do
-  every '* * * * *' do
-    command "sleep #{i*5}; cd /home/ec2-user/skkoolbus && RAILS_ENV=production bundle exec rake parsing:bus --silent"
-  end
-end
+
+
+# for i in (1..11) do
+#   every '* * * * *' do
+#     command "sleep #{i*5}; cd /home/ec2-user/skkoolbus && RAILS_ENV=production bundle exec rake parsing:bus --silent"
+#   end
+# end
+
+
 # Learn more: http://github.com/javan/whenever
