@@ -19,7 +19,7 @@
         <br>
         <span class="first_bus"><span class="n_minute_later"><%= @expect[5] %>분 후 도착</span></span><br>
         <span class="second_bus"><span class="n_minute_later"><%= @expect[5] +3 %>분 후 도착</span></span>
-        <p class="jong_jeom">종점(농구장)까지 <span class="expected_time">15<%# 예상시간 %>분</span> 소요 예상</p>
+        <p class="jong_jeom">종점(농구장)까지 <span class="expected_time"><%= Bus.expect(5) %>분</span> 소요 예상</p>
 
         <!-- 모달 디폴트값 끝 -->
 

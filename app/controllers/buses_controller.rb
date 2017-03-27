@@ -5,6 +5,16 @@ class BusesController < ApplicationController
     estimations
   end
 
+  def convert(n)
+    if 0 <= n < 4
+      n
+    elsif 4 <= n < 7
+      n + 1
+    elsif 7 <= n < 13
+      n + 2
+    end
+  end
+
   def api
     #api call - by user
     # response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
@@ -26,7 +36,7 @@ class BusesController < ApplicationController
           @sequence << response[n-1],
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
-          @expect << Bus.expect(n-1)
+          @expect << Bus.expect(n)
           # @expect << Predict.first.stations[n][:time_arrival]
         end
       #if overlap
@@ -41,7 +51,7 @@ class BusesController < ApplicationController
             @expect << Bus.expect(n)
             # @expect << Predict.first.stations[n][:time_arrival]
           else
-            @expect << Bus.expect2(n-1)
+            @expect << Bus.expect(n-1)
             # @expect << Predict.first.stations[n-1][:time_arrival]
           end
         end
