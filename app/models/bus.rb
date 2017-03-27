@@ -20,7 +20,8 @@ class Bus < ApplicationRecord
         ((Bus.find(1).s10 + Bus.find(2).s10 + Bus.find(3).s10) / 3)
     ]
 
-    response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
+    # response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
+    response =  JSON.parse(File.read('app/views/buses/response.json'))
     count = 0
     for l in 1..10
       if response[n-1-l]["CarNumber"].empty?
