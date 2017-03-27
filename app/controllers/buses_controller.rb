@@ -23,24 +23,27 @@ class BusesController < ApplicationController
         @overlap = false
         for n in [1,2,3,4,5,6,7,8,9,10]
           @json = response[n-1],
-              @sequence << response[n-1],
-              @kind << response[n-1]["Kind"],
-              @carNumber << response[n-1]["CarNumber"],
-              @expect << Predict.first.stations[n][:time_arrival]
+          @sequence << response[n-1],
+          @kind << response[n-1]["Kind"],
+          @carNumber << response[n-1]["CarNumber"],
+          @expect << Bus.expect(n-1)
+          # @expect << Predict.first.stations[n][:time_arrival]
         end
       #if overlap
       else #overlap
         @overlap = true
         for n in [1,2,3,4,5,6,7,8,9,10,11]
           @json = response[n-1],
-              @sequence << response[n-1]["Sequence"],
-              @kind << response[n-1]["Kind"],
-              @carNumber << response[n-1]["CarNumber"],
-              if n == 1
-                @expect << Predict.first.stations[n][:time_arrival]
-              else
-                @expect << Predict.first.stations[n-1][:time_arrival]
-              end
+          @sequence << response[n-1]["Sequence"],
+          @kind << response[n-1]["Kind"],
+          @carNumber << response[n-1]["CarNumber"],
+          if n == 1
+            @expect << Bus.expect(n)
+            # @expect << Predict.first.stations[n][:time_arrival]
+          else
+            @expect << Bus.expect2(n-1)
+            # @expect << Predict.first.stations[n-1][:time_arrival]
+          end
         end
       end
     end
