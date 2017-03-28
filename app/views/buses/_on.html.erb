@@ -21,27 +21,7 @@
 
 
 <div class="bus_all" style="">
-  <!-- info menu area -->
-  <div id="mySidenav" class="sidenav" onclick="closeNav()">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="info_message">
-      <div class="info_title">
-        <h1>SKKOOL BUS<br>APP</h1>
-        <div class="title_line"></div>
-      </div>
-      <div class="info_howto">
-        <h4>How to use</h4>
-        <p>1.운행중인 셔틀버스의 위치와 도착시간을 확인하세요!<br>&nbsp;&nbsp;(새로고침 버튼을 누르면 정보가 업데이트 됩니다)</p>
-        <p>2.‘자세히 보기’를 누르면 해당 정류장에서 각 건물까지<br>&nbsp;&nbsp;<span style="color:#ffc83d">예상 소요시간</span>을 알 수 있습니다.</p>
-        <p>3.우측 상단 버튼을 누르면 운영시간표가 나타납니다</p>
-      </div>
-      <div class="info_contact">
-        <h4>Contact</h4>
-        <p>skkoolbus@gmail.com<br>Developed by 멋쟁이 사자처럼 4기</p>
-        <p><span class="main_developers" style="font-size: 13px;">이종원 고윤서 김정환 전태훈 김주상</span></p>
-      </div>
-    </div>
-  </div>
+  <%= render 'info' %>
 
   <div class="bus_line_container">
     <div class="bus_line">
@@ -58,19 +38,3 @@
 </div>
 
 <%= render 'modal' %>
-
-<!-- info 슬라이드 시작 -->
-
-<script>
-  /* Open the sidenav */
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "100%";
-  }
-
-  /* Close/hide the sidenav */
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-</script>
-
-<!-- info 슬라이드 끝 -->
