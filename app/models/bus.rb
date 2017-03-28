@@ -54,8 +54,15 @@ class Bus < ApplicationRecord
         ((Bus.find(1).s10 + Bus.find(2).s10 + Bus.find(3).s10) / 3)
     ]
     result = 0
-    (n..9).each do |i|
-      result += @array[i]
+
+    if n == 5 or n == 6 or n == 7 or n == 8 or n == 9
+      (n..9).each do |i|
+        result += @array[i]
+      end
+    else
+      (n..4).each do |i|
+        result += @array[i]
+      end
     end
     return result
   end
