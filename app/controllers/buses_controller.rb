@@ -5,16 +5,6 @@ class BusesController < ApplicationController
     estimations
   end
 
-  def convert(n)
-    if 0 <= n < 4
-      n
-    elsif 4 <= n < 7
-      n + 1
-    elsif 7 <= n < 13
-      n + 2
-    end
-  end
-
   def api
     #api call - by user
     # response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
