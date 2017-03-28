@@ -49,10 +49,8 @@ class BusesController < ApplicationController
           @carNumber << response[n-1]["CarNumber"],
           if n == 1
             @expect << Bus.expect(n)
-            # @expect << Predict.first.stations[n][:time_arrival]
           else
-            @expect << Bus.expect(n-1)
-            # @expect << Predict.first.stations[n-1][:time_arrival]
+            @expect << Bus.expect(n)
           end
         end
       end
