@@ -54,8 +54,8 @@ class Bus < ApplicationRecord
         ((Bus.find(1).s10 + Bus.find(2).s10 + Bus.find(3).s10) / 3)
     ]
     result = 0
-    (n..10).each do |i|
-      result += @array[i-1]
+    (n..9).each do |i|
+      result += @array[i]
     end
     return result
   end
