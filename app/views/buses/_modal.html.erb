@@ -32,7 +32,7 @@
             <div class="panel panel1_0">
 
               <!-- 모달 안 값 시작 -->
-              <div class="modal_panel_component_left">1. 셔틀 <%#= @h_maeul[0] %>분 + 걸어서 <%#= @h_maeul_walk[0] %>분</div> <div class="modal_panel_component_right">약<strong><%# n분 %>22</strong>분</div>
+              <div class="modal_panel_component_left">1. 셔틀 <%= Bus.time(5) %>분 + 걸어서 <%= @h_maeul_walk[0] %>분</div> <div class="modal_panel_component_right">약<strong><%# n분 %>22</strong>분</div>
               <br>
               <div class="modal_panel_component_left">2. 택시</div> <div class="modal_panel_component_right">약<strong><%= @h_taxi[0] %></strong>분</div>
               <br>
