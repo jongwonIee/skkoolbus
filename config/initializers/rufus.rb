@@ -1,3 +1,5 @@
+include BusesHelper
+
 Rails.logger.info "Start_process"
 scheduler = Rufus::Scheduler.singleton
 i = 0

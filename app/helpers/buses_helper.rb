@@ -58,19 +58,9 @@ module BusesHelper
     @n_run        = [3,2,2,2]
   end
 
-
-
-
-
-
-
-  def sum_stations(from, to, sequences, stations, type, version)
+  def sum_stations(from, to, sequences, stations)
     total_time = 0
-    if version == 1
-      key = :average_time
-    elsif version == 2
-      key = :average_time2
-    end
+    key = :average_time
     if from < -1
       for between in sequences[11+from .. 9]
         total_time += stations[between][key]
@@ -83,45 +73,27 @@ module BusesHelper
         total_time += stations[between][key]
       end
     end
-    if type == 2
-      total_time += stations[sequences[from]][:average_time_spent]
-    end
     return total_time
   end
 
-  def calculate_time_taken(carnumber,station, before_station, type, late)
-    if type == 1
-      time_taken = Time.now - before_station[:time_depart]
-      if late == 0
-        key = :time_taken
-      elsif late == 1
-        key = :time_taken_late
-      end
-      if station[key].size < 3
-        station[key] << time_taken
-      else
-        station[key].shift
-        station[key] << time_taken
-      end
-    elsif type == 2
-      @time_stop = station[:time_stop][carnumber]
-      @before_stop = before_station[:time_stop][carnumber]
-      if @time_stop != nil and @before_stop != nil
-        time_taken = station[:time_stop][carnumber] - before_station[:time_stop][carnumber]
-      else
-        time_taken = 1
-      end
-      if late == 0
-        key = :time_taken2
-      elsif late == 1
-        key = :time_taken_late2
-      end
-      if station[key].size < 3
-        station[key] << time_taken
-      else
-        station[key].shift
-        station[key] << time_taken
-      end
+  def calculate_time_taken(carnumber,station, before_station)
+    @time_stop = station[:time_stop][carnumber]
+    @before_stop = before_station[:time_stop][carnumber]
+    if @time_stop != nil and @before_stop != nil
+      time_taken = station[:time_stop][carnumber] - before_station[:time_stop][carnumber]
+    else
+      time_taken = 1
+    end
+
+    if time_taken > 1800
+      return False
+    end
+
+    if station[key].size < 3
+      station[key] << time_taken
+    else
+      station[key].shift
+      station[key] << time_taken
     end
     return time_taken
   end
