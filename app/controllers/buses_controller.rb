@@ -7,8 +7,8 @@ class BusesController < ApplicationController
 
   def api
     #api call - by user
-    # response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-    response =  JSON.parse(File.read('app/views/buses/response.json'))
+    response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
+    # response =  JSON.parse(File.read('app/views/buses/response.json'))
     if response[2]["CarNumber"] == "" and response[3]["CarNumber"] == "" and response[4]["CarNumber"] == "" and response[5]["CarNumber"] == "" and response[6]["CarNumber"] == "" and response[7]["CarNumber"] == "" and response[8]["CarNumber"] == "" and response[9]["CarNumber"] == ""
       @on = false
     else
@@ -26,8 +26,8 @@ class BusesController < ApplicationController
           @sequence << response[n-1],
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
-          @expect << Bus.expect(n)
-          # @expect << Predict.first.stations[n][:time_arrival]
+          # @expect << Bus.expect(n)
+          @expect << Predict.first.stations[n][:time_arrival]
         end
       #if overlap
       else #overlap
@@ -38,9 +38,11 @@ class BusesController < ApplicationController
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
           if n == 1
-            @expect << Bus.expect(n)
+            # @expect << Bus.expect(n)
+            @expect << Predict.first.stations[n][:time_arrival]
           else
-            @expect << Bus.expect(n)
+            # @expect << Bus.expect(n)
+            @expect << Predict.first.stations[n][:time_arrival]
           end
         end
       end

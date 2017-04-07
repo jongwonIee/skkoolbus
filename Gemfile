@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rufus-scheduler'
+
 gem 'whenever', :require => false
 
 gem 'httparty'
