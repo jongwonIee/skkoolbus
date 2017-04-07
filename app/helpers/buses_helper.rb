@@ -89,19 +89,17 @@ module BusesHelper
       return False
     end
 
-    if station[key].size < 3
-      station[key] << time_taken
+    if station[:time_taken].size < 3
+      station[:time_taken] << time_taken
     else
-      station[key].shift
-      station[key] << time_taken
+      station[:time_taken].shift
+      station[:time_taken] << time_taken
     end
     return time_taken
   end
 
   def check_stop_time(carnumber, station)
-    if Time.now - station[:time_stop][carnumber] > 800
-      station[:time_stop][carnumber]= Time.now
-    end
+    station[:time_stop][carnumber]= Time.now
   end
 
   def check_depart_time(station)
