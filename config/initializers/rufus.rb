@@ -28,7 +28,7 @@ scheduler.every '5s' do
       check_stop_time(carnumber, station)
       time_taken = calculate_time_taken(carnumber,station, before_station)
       station[:before_car] = station[:carnumber]
-      if time_taken != False
+      if time_taken != false
         Car.create(carnumber: carnumber, arrived: Time.now, difference: (Time.now - station[:time_stop][station[:before_car]]), sequence: sequence, time_taken: time_taken)
       end
     elsif carnumber.length == 0 and station[:carnumber].length > 0
@@ -37,7 +37,7 @@ scheduler.every '5s' do
     elsif carnumber.length >0 and station[:carnumber].length == 0
       check_stop_time(carnumber, station)
       time_taken = calculate_time_taken(carnumber,station, before_station)
-      if time_taken != False
+      if time_taken != false
         Car.create(carnumber: carnumber, arrived: Time.now, difference: (Time.now - station[:time_stop][station[:before_car]]), sequence: sequence, time_taken: time_taken)
       end
     end
