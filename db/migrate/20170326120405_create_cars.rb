@@ -3,7 +3,7 @@ class CreateCars < ActiveRecord::Migration[5.0]
     create_table :cars do |t|
       t.string :carnumber
       t.datetime :arrived
-      t.integer :taked_time
+      t.integer :time_taken
       t.integer :difference
       t.integer :sequence
 

@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20170326120405) do
   create_table "cars", force: :cascade do |t|
     t.string   "carnumber"
     t.datetime "arrived"
-    t.integer  "taked_time"
+    t.integer  "time_taken"
     t.integer  "difference"
     t.integer  "sequence"
     t.datetime "created_at", null: false
