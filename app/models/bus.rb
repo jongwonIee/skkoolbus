@@ -56,7 +56,7 @@ class Bus < ApplicationRecord
 
     @array = []
     [1,2,3,4,5,6,7,8,9,10].each do |n|
-        @array << Predict.first.stations[n][:time_arrival]
+        @array << ((Time.now - Predict.first.stations[n][:time_arrival]) / 60).round(0)
     end
 
     result = 0

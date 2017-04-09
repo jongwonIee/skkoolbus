@@ -27,7 +27,7 @@ class BusesController < ApplicationController
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
           # @expect << Bus.expect(n)
-          @expect << Predict.first.stations[n][:time_arrival]
+          @expect << ((Time.now - Predict.first.stations[n][:time_arrival]) / 60).round(0)
         end
       #if overlap
       else #overlap
@@ -39,10 +39,10 @@ class BusesController < ApplicationController
           @carNumber << response[n-1]["CarNumber"],
           if n == 1
             # @expect << Bus.expect(n)
-            @expect << Predict.first.stations[n][:time_arrival]
+            @expect << ((Time.now - Predict.first.stations[n][:time_arrival]) / 60).round(0)
           else
             # @expect << Bus.expect(n)
-            @expect << Predict.first.stations[n][:time_arrival]
+            @expect << ((Time.now - Predict.first.stations[n-1][:time_arrival]) / 60).round(0)
           end
         end
       end
