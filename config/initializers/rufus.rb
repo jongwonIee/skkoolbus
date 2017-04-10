@@ -29,7 +29,7 @@ scheduler.every '5s' do
       time_taken = calculate_time_taken(carnumber,station, before_station)
       station[:before_car] = station[:carnumber]
       if time_taken != false
-        Car.create(carnumber: carnumber, arrived: Time.now, difference: (Time.now - station[:time_stop][station[:before_car]]), sequence: sequence, time_taken: time_taken)
+        Car.create(carnumber: carnumber, arrived: Time.now.in_time_zone("Asia/Seoul"), difference: (Time.now.in_time_zone("Asia/Seoul") - station[:time_stop][station[:before_car]]), sequence: sequence, time_taken: time_taken)
       end
     elsif carnumber.length == 0 and station[:carnumber].length > 0
       station[:before_car] = station[:carnumber]
@@ -38,7 +38,7 @@ scheduler.every '5s' do
       check_stop_time(carnumber, station)
       time_taken = calculate_time_taken(carnumber,station, before_station)
       if time_taken != false
-        Car.create(carnumber: carnumber, arrived: Time.now, difference: (Time.now - station[:time_stop][station[:before_car]]), sequence: sequence, time_taken: time_taken)
+        Car.create(carnumber: carnumber, arrived: Time.now.in_time_zone("Asia/Seoul"), difference: (Time.now.in_time_zone("Asia/Seoul") - station[:time_stop][station[:before_car]]), sequence: sequence, time_taken: time_taken)
       end
     end
     station[:carnumber] = carnumber
@@ -79,12 +79,12 @@ scheduler.every '5s' do
         #Calculated before?
         if calculated[sequence] == nearest_station[:sequence] and calculated[type] != nearest_station[:type]
           total_time = sum_stations(index, current_sequence - 1, sequences, @stations)
-          @stations[current_sequence][time_arrival] = Time.now + total_time
+          @stations[current_sequence][time_arrival] = Time.now.in_time_zone("Asia/Seoul") + total_time
           @stations[current_sequence][calculation][sequence] = nearest_station[:sequence]
           @stations[current_sequence][calculation][type] = nearest_station[:type]
         elsif calculated[sequence] != nearest_station[:sequence]
           total_time = sum_stations(index, current_sequence - 1, sequences, @stations)
-          @stations[current_sequence][time_arrival] = Time.now + total_time
+          @stations[current_sequence][time_arrival] = Time.now.in_time_zone("Asia/Seoul") + total_time
           @stations[current_sequence][calculation][sequence] = nearest_station[:sequence]
           @stations[current_sequence][calculation][type] = nearest_station[:type]
         end

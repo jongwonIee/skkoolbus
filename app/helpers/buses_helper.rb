@@ -99,15 +99,15 @@ module BusesHelper
   end
 
   def check_stop_time(carnumber, station)
-    station[:time_stop][carnumber]= Time.now
+    station[:time_stop][carnumber]= Time.now.in_time_zone("Asia/Seoul")
   end
 
   def check_depart_time(station)
-    station[:time_depart] = Time.now
+    station[:time_depart] = Time.now.in_time_zone("Asia/Seoul")
   end
 
   def calculate_time_spent(carnumber, station, type)
-    time_spent = Time.now - station[:time_stop][carnumber]
+    time_spent = Time.now.in_time_zone("Asia/Seoul") - station[:time_stop][carnumber]
     if type == "nonstop"
       input_time_spent(station, 0)
     elsif type == "stop"

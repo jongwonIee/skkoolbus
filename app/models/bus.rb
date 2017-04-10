@@ -3,7 +3,7 @@ class Bus < ApplicationRecord
   def self.track
 
   end
-
+  #test
   def self.expect(n)
     @array = [
         ((Bus.find(1).s1 + Bus.find(2).s1 + Bus.find(3).s1) / 3),
@@ -41,6 +41,7 @@ class Bus < ApplicationRecord
   end
 
   def self.time(n)
+    #test
     # @array = [
     #     ((Bus.find(1).s1 + Bus.find(2).s1 + Bus.find(3).s1) / 3),
     #     ((Bus.find(1).s2 + Bus.find(2).s2 + Bus.find(3).s2) / 3),
@@ -56,7 +57,7 @@ class Bus < ApplicationRecord
 
     @array = []
     [1,2,3,4,5,6,7,8,9,10].each do |n|
-        @array << ((Time.now - Predict.first.stations[n][:time_arrival]) / 60).round(0)
+        @array << ((Time.now.in_time_zone("Asia/Seoul") - Predict.first.stations[n][:time_arrival]) / 60).round(0)
     end
 
     result = 0
