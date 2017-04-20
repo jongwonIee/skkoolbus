@@ -86,7 +86,7 @@ module BusesHelper
     end
 
     if time_taken > 1800
-      return False
+      return false
     end
 
     if station[:time_taken].size < 3

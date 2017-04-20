@@ -3,6 +3,7 @@ include BusesHelper
 Rails.logger.info "Start_process"
 scheduler = Rufus::Scheduler.singleton
 i = 0
+unless defined?(Rails::Console) || File.split($0).last == 'rake'
 scheduler.every '5s' do
   i += 1
   Rails.logger.info "Startssss"
@@ -100,4 +101,5 @@ scheduler.every '5s' do
   end
   Predict.first.update_attributes(stations: @stations)
   puts "end"
+end
 end
