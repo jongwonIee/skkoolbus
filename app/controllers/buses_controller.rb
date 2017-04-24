@@ -12,12 +12,14 @@ class BusesController < ApplicationController
     if response[2]["CarNumber"] == "" and response[3]["CarNumber"] == "" and response[4]["CarNumber"] == "" and response[5]["CarNumber"] == "" and response[6]["CarNumber"] == "" and response[7]["CarNumber"] == "" and response[8]["CarNumber"] == "" and response[9]["CarNumber"] == ""
       @on = false
     else
+      @stations = Predict.first.stations
       @on = true
       @json = []
       @sequence = []
       @kind = []
       @carNumber = []
       @expect = []
+      @expect2 = []
       #if no overlap
       if response[10].nil?
         @overlap = false
@@ -27,7 +29,12 @@ class BusesController < ApplicationController
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
           # @expect << Bus.expect(n)
-          @expect << ((Time.now.in_time_zone("Asia/Seoul") - Predict.first.stations[n][:time_arrival]) / 60).round(0)
+@prediction = ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+	@expect2 << @prediction
+if @prediction <= 1
+	@prediction = "곧 도착"
+end
+          @expect << @prediction
         end
       #if overlap
       else #overlap
@@ -39,10 +46,20 @@ class BusesController < ApplicationController
           @carNumber << response[n-1]["CarNumber"],
           if n == 1
             # @expect << Bus.expect(n)
-            @expect << ((Time.now.in_time_zone("Asia/Seoul") - Predict.first.stations[n][:time_arrival]) / 60).round(0)
+@prediction = ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+	@expect2 << @prediction
+if @prediction <= 1
+	@prediction = "곧 도착"
+end
+            @expect << @prediction
           else
             # @expect << Bus.expect(n)
-            @expect << ((Time.now.in_time_zone("Asia/Seoul") - Predict.first.stations[n-1][:time_arrival]) / 60).round(0)
+@prediction = ((@stations[n-1][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+	@expect2 << @prediction
+if @prediction <= 1
+	@prediction = "곧 도착"
+end
+            @expect << @prediction
           end
         end
       end
