@@ -57,6 +57,7 @@ scheduler.every '5s' do
     for x in (1..10)
       index = current_sequence - 1 - x
       selected = sequences[index]
+      selected_next = sequences[index+1]
       selected_station = @stations[selected]
       if selected_station[:carnumber].length > 0
         pick += 1
@@ -64,6 +65,7 @@ scheduler.every '5s' do
         puts "nearest_stations: #{selected}"
         puts "status: #{selected_station[:status].to_i}"
         nearest_station = {}
+        current_nth = (current_sequence - selected).abs
         nearest_station[:sequence] = selected
         nearest_station[:type] = selected_station[:carnumber]
         if pick == 1
@@ -88,6 +90,11 @@ scheduler.every '5s' do
           @stations[current_sequence][time_arrival] = Time.now.in_time_zone("Asia/Seoul") + total_time
           @stations[current_sequence][calculation][sequence] = nearest_station[:sequence]
           @stations[current_sequence][calculation][type] = nearest_station[:type]
+        end
+        left_time = @stations[current_sequence][time_arrival] - Time.now.in_time_zone("Asia/Seoul")
+        taking_time = total_time - @stations[selected_next][average_time]
+        if current_nth != 1 and left_time < taking_time
+          @stations[current_sequence][time_arrival] = Time.now.in_time_zone("Asia/Seoul") + taking_time
         end
         puts "calculated[:sequence] : #{calculated[sequence]}"
         puts "total_time: #{total_time}"
