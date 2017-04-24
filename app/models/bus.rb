@@ -57,7 +57,7 @@ class Bus < ApplicationRecord
     @stations = Predict.first.stations
     @array = []
     [1,2,3,4,5,6,7,8,9,10].each do |n|
-        @array << (@stations[n][:time_arrival] - (Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+        @array << ( @stations[n][:time_arrival] / 60 - (Time.now.in_time_zone("Asia/Seoul")) ).round(0)
     end
 
     result = 0
