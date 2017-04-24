@@ -4,7 +4,11 @@
       <div class="bus_info_name1 clickable">
         <a data-toggle="modal" data-target="#Basketball_court">
           <p id="#" class="info_name">농구장 앞(하차)</p>
-          <p id="#" class="info_arrival"><%= @expect[0] %>분 후 도착</p>
+          <% if @expect[0] <= 1 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[0] %>분 후 도착</p>
+          <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
       </div>
@@ -13,14 +17,22 @@
       <div class="bus_info_name2 clickable">
         <a data-toggle="modal" data-target="#StudentHall">
           <p id="#" class="info_name">학생회관 앞</p>
-          <p id="#" class="info_arrival"><%= @expect[1] %>분 후 도착</p>
+          <% if @expect[1] <= 1 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[1] %>분 후 도착</p>
+          <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
       </div>
       <div class="bus_info_name10 clickable">
         <a data-toggle="modal" data-target="#Sixhundred_Anniversary">
           <p id="#" class="info_name">600주년 기념관</p>
-          <p id="#" class="info_arrival"><%= @expect[9] %>분 후 도착</p>
+          <% if @expect[9] <= 1 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[9] %>분 후 도착</p>
+          <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
       </div>
@@ -29,14 +41,22 @@
       <div class="bus_info_name3 clickable">
         <a data-toggle="modal" data-target="#Exit">
           <p id="#" class="info_name">정문(하교)</p>
-          <p id="#" class="info_arrival"><%= @expect[2] %>분 후 도착</p>
+          <% if @expect[2] <= 1 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[2] %>분 후 도착</p>
+          <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
       </div>
       <div class="bus_info_name9 clickable">
         <a data-toggle="modal" data-target="#Entrance">
           <p id="#" class="info_name">정문(등교)</p>
-          <p id="#" class="info_arrival"><%= @expect[8] %>분 후 도착</p>
+          <% if @expect[8] <= 1 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[8] %>분 후 도착</p>
+          <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
       </div>
@@ -45,14 +65,22 @@
       <div class="bus_info_name4 clickable">
         <a data-toggle="modal" data-target="#HyehwaRottery">
           <p id="#" class="info_name">혜화로터리</p>
-          <p id="#" class="info_arrival"><%= @expect[3] %>분 후 도착</p>
+          <% if @expect[3] <= 1 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[3] %>분 후 도착</p>
+          <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
       </div>
       <div class="bus_info_name8 clickable">
         <a data-toggle="modal" data-target="#McDonald">
           <p id="#" class="info_name">맥도날드 앞</p>
-          <p id="#" class="info_arrival"><%= @expect[7] %>분 후 도착</p>
+          <% if @expect[7] <= 1 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[7] %>분 후 도착</p>
+          <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
       </div>
@@ -61,7 +89,11 @@
       <div class="bus_info_name6">
         <a data-toggle="modal" data-target="#HyehwaStation">
           <p id="#" class="info_name">혜화역(승차)</p>
-          <p id="#" class="info_arrival"><%= @expect[5] %>분 후 도착</p>
+          <% if @expect[5] <= 1 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[5] %>분 후 도착</p>
+          <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
       </div>

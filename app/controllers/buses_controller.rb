@@ -29,12 +29,8 @@ class BusesController < ApplicationController
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
           # @expect << Bus.expect(n)
-@prediction = ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
-	@expect2 << @prediction
-if @prediction <= 1
-	@prediction = "곧 도착"
-end
-          @expect << @prediction
+          @expect << ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+          @expect2 << ((@stations[n][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
         end
       #if overlap
       else #overlap
@@ -46,20 +42,12 @@ end
           @carNumber << response[n-1]["CarNumber"],
           if n == 1
             # @expect << Bus.expect(n)
-@prediction = ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
-	@expect2 << @prediction
-if @prediction <= 1
-	@prediction = "곧 도착"
-end
-            @expect << @prediction
+            @expect << ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+            @expect2 << ((@stations[n][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
           else
             # @expect << Bus.expect(n)
-@prediction = ((@stations[n-1][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
-	@expect2 << @prediction
-if @prediction <= 1
-	@prediction = "곧 도착"
-end
-            @expect << @prediction
+            @expect << ((@stations[n-1][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+            @expect2 << ((@stations[n-1][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
           end
         end
       end
