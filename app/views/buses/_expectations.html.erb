@@ -7,7 +7,7 @@
           <% if @expect[0] <= 1 %>
             <p id="#" class="info_arrival">곧 도착</p>
           <% else %>
-            <p id="#" class="info_arrival"><%= @expect[0] %>분 후 도착</p>
+            <p id="#" class="info_arrival"><%= @expect[0].round(0) %>분 후 도착</p>
           <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
@@ -20,7 +20,7 @@
           <% if @expect[1] <= 1 %>
             <p id="#" class="info_arrival">곧 도착</p>
           <% else %>
-            <p id="#" class="info_arrival"><%= @expect[1] %>분 후 도착</p>
+            <p id="#" class="info_arrival"><%= @expect[1].round(0) %>분 후 도착</p>
           <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
@@ -31,7 +31,7 @@
           <% if @expect[9] <= 1 %>
             <p id="#" class="info_arrival">곧 도착</p>
           <% else %>
-            <p id="#" class="info_arrival"><%= @expect[9] %>분 후 도착</p>
+            <p id="#" class="info_arrival"><%= @expect[9].round(0) %>분 후 도착</p>
           <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
@@ -44,7 +44,7 @@
           <% if @expect[2] <= 1 %>
             <p id="#" class="info_arrival">곧 도착</p>
           <% else %>
-            <p id="#" class="info_arrival"><%= @expect[2] %>분 후 도착</p>
+            <p id="#" class="info_arrival"><%= @expect[2].round(0) %>분 후 도착</p>
           <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
@@ -55,7 +55,7 @@
           <% if @expect[8] <= 1 %>
             <p id="#" class="info_arrival">곧 도착</p>
           <% else %>
-            <p id="#" class="info_arrival"><%= @expect[8] %>분 후 도착</p>
+            <p id="#" class="info_arrival"><%= @expect[8].round(0) %>분 후 도착</p>
           <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
@@ -68,7 +68,7 @@
           <% if @expect[3] <= 1 %>
             <p id="#" class="info_arrival">곧 도착</p>
           <% else %>
-            <p id="#" class="info_arrival"><%= @expect[3] %>분 후 도착</p>
+            <p id="#" class="info_arrival"><%= @expect[3].round(0) %>분 후 도착</p>
           <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
@@ -79,7 +79,7 @@
           <% if @expect[7] <= 1 %>
             <p id="#" class="info_arrival">곧 도착</p>
           <% else %>
-            <p id="#" class="info_arrival"><%= @expect[7] %>분 후 도착</p>
+            <p id="#" class="info_arrival"><%= @expect[7].round(0) %>분 후 도착</p>
           <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>
@@ -92,7 +92,7 @@
           <% if @expect[5] <= 1 %>
             <p id="#" class="info_arrival">곧 도착</p>
           <% else %>
-            <p id="#" class="info_arrival"><%= @expect[5] %>분 후 도착</p>
+            <p id="#" class="info_arrival"><%= @expect[5].round(0) %>분 후 도착</p>
           <% end %>
           <div class="info_detail"><p>자세히보기</p></div>
         </a>

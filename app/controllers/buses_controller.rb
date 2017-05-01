@@ -12,7 +12,8 @@ class BusesController < ApplicationController
     if response[2]["CarNumber"] == "" and response[3]["CarNumber"] == "" and response[4]["CarNumber"] == "" and response[5]["CarNumber"] == "" and response[6]["CarNumber"] == "" and response[7]["CarNumber"] == "" and response[8]["CarNumber"] == "" and response[9]["CarNumber"] == ""
       @on = false
     else
-      @stations = Predict.first.stations
+      Rails.logger.info  "WHat's happening"
+      @stations = Predict.first.stations.clone
       @on = true
       @json = []
       @sequence = []
@@ -29,8 +30,8 @@ class BusesController < ApplicationController
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
           # @expect << Bus.expect(n)
-          @expect << ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
-          @expect2 << ((@stations[n][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+          @expect << ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60)
+          @expect2 << ((@stations[n][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60)
         end
       #if overlap
       else #overlap
@@ -42,12 +43,12 @@ class BusesController < ApplicationController
           @carNumber << response[n-1]["CarNumber"],
           if n == 1
             # @expect << Bus.expect(n)
-            @expect << ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
-            @expect2 << ((@stations[n][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+            @expect << ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60)
+            @expect2 << ((@stations[n][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60)
           else
             # @expect << Bus.expect(n)
-            @expect << ((@stations[n-1][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
-            @expect2 << ((@stations[n-1][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+            @expect << ((@stations[n-1][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60)
+            @expect2 << ((@stations[n-1][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60)
           end
         end
       end
