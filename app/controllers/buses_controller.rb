@@ -1,6 +1,7 @@
 class BusesController < ApplicationController
   include BusesHelper
   def index
+    cookies.delete(:stations)
     api
     estimations
   end
