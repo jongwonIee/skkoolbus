@@ -17,7 +17,6 @@ class BusesController < ApplicationController
       @stations = Predict.first.stations.clone
       @on = true
       @json = []
-      @sequence = []
       @kind = []
       @carNumber = []
       @expect = []
@@ -28,7 +27,6 @@ class BusesController < ApplicationController
         @overlap = false
         for n in [1,2,3,4,5,6,7,8,9,10]
           @json = response[n-1],
-          @sequence << response[n-1],
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
           # @expect << Bus.expect(n)
@@ -41,7 +39,6 @@ class BusesController < ApplicationController
         @overlap = true
         for n in [1,2,3,4,5,6,7,8,9,10,11]
           @json = response[n-1],
-          @sequence << response[n-1]["Sequence"],
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
           if n == 1
