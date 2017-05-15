@@ -1,6 +1,9 @@
 class BusesController < ApplicationController
   include BusesHelper
   def index
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
     cookies.delete(:stations)
     api
     estimations
