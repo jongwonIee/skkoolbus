@@ -1,9 +1,15 @@
 class BusesController < ApplicationController
   include BusesHelper
   def index
+
+    respond_to do |format|
+      format.js
+    end
+
     cookies.delete(:stations)
     api
     estimations
+
   end
 
   def api

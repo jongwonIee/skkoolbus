@@ -5,17 +5,16 @@
 <% end %>
 
 <script>
-$(document).on('ready page:load', function() {
-  var REFRESH_INTERVAL_IN_MILLIS = 5000;
-  if ($('.f-pending-message').length > 0) {
-    setTimeout(function(){
+  $(document).ready(function () {
+    // will call refreshPartial every 1 seconds
+    setInterval(refreshPartial, 1000)
 
-    Turbolinks.enableTransitionCache(true);
+  });
 
-    Turbolinks.visit(location.toString());
-
-    Turbolinks.enableTransitionCache(false);
-  }, REFRESH_INTERVAL_IN_MILLIS);
+  // calls action refreshing the partial
+  function refreshPartial() {
+    $.ajax({
+      url: "buses/index"
+    })
   }
-});
 </script>
