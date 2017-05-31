@@ -10,7 +10,7 @@ class BusesController < ApplicationController
   end
 
   def reloader
-    Car.all
+    Predict.all
   end
 
   def api
