@@ -28,36 +28,30 @@ class BusesController < ApplicationController
       @carNumber = []
       @expect = []
       @expect2 = []
-      @boundary = []
       #if no overlap
       if response[10].nil?
+
         @overlap = false
         for n in [1,2,3,4,5,6,7,8,9,10]
           @json = response[n-1],
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
-          # @expect << Bus.expect(n)
-          @boundary << (@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul"))
-          @expect << ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60)
-          @expect2 << ((@stations[n][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60)
+          @expect << Bus.expect(n),
+          @expect2 << 0
         end
-      #if overlap
       else #overlap
         @overlap = true
+
         for n in [1,2,3,4,5,6,7,8,9,10,11]
           @json = response[n-1],
           @kind << response[n-1]["Kind"],
-          @carNumber << response[n-1]["CarNumber"],
+          @carNumber << response[n-1]["CarNumber"]
           if n == 1
-            # @expect << Bus.expect(n)
-            @boundary << (@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul"))
-            @expect << ((@stations[n][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
-            @expect2 << ((@stations[n][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+            @expect << Bus.expect(n)
+            @expect2 << 0
           else
-            # @expect << Bus.expect(n)
-            @boundary << (@stations[n-1][:time_arrival] - Time.now.in_time_zone("Asia/Seoul"))
-            @expect << ((@stations[n-1][:time_arrival] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
-            @expect2 << ((@stations[n-1][:time_arrival2] - Time.now.in_time_zone("Asia/Seoul")) / 60).round(0)
+            @expect << Bus.expect(n-1)
+            @expect2 << 0
           end
         end
       end
