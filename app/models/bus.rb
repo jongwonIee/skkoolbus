@@ -16,16 +16,12 @@ class Bus < ApplicationRecord
   end
 
   def self.expect(n)
-
     Bus.generate
-
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
     # response = JSON.parse(File.read('app/views/buses/response.json'))
-
     if response.length == 11
       response = response.drop(1)
     end
-
     count = 0
     for l in 1..10
       if response[n-1-l]["CarNumber"].empty?
@@ -42,7 +38,29 @@ class Bus < ApplicationRecord
   end
 
   def self.expect2(n)
-    return n
+    Bus.generate
+    response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
+    # response = JSON.parse(File.read('app/views/buses/response.json'))
+    if response.length == 11
+      response = response.drop(1)
+    end
+    count = 0
+    token = 0
+    for l in 1..10
+      if response[n-1-l]["CarNumber"].empty?
+        count += 1
+      elsif token == 0
+        count += 1
+        token += 1
+      elsif (token == 1) and (response[n-1-l]["CarNumber"].empty?)
+        break
+      end
+    end
+    result = 0
+    for i in n-2-count..n-2
+      result += @array[i]
+    end
+    return result
   end
 
   def self.time(n)

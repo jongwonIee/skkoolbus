@@ -36,8 +36,8 @@ class BusesController < ApplicationController
           @json = response[n-1],
           @kind << response[n-1]["Kind"],
           @carNumber << response[n-1]["CarNumber"],
-          @expect << Bus.expect(n),
-          @expect2 << 0
+          @expect << Bus.expect(n)
+          @expect2 << Bus.expect2(n)
         end
       else #overlap
         @overlap = true
@@ -48,10 +48,10 @@ class BusesController < ApplicationController
           @carNumber << response[n-1]["CarNumber"]
           if n == 1
             @expect << Bus.expect(n)
-            @expect2 << 0
+            @expect2 << Bus.expect2(n)
           else
             @expect << Bus.expect(n-1)
-            @expect2 << 0
+            @expect2 << Bus.expect2(n-1)
           end
         end
       end
