@@ -17,8 +17,8 @@ class Bus < ApplicationRecord
 
   def self.expect(n)
     Bus.generate
-    response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-    # response = JSON.parse(File.read('app/views/buses/response.json'))
+    # response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
+    response = JSON.parse(File.read('app/views/buses/response.json'))
     if response.length == 11
       response = response.drop(1)
     end
@@ -39,8 +39,8 @@ class Bus < ApplicationRecord
 
   def self.expect2(n)
     Bus.generate
-    response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
-    # response = JSON.parse(File.read('app/views/buses/response.json'))
+    # response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
+    response = JSON.parse(File.read('app/views/buses/response.json'))
     if response.length == 11
       response = response.drop(1)
     end

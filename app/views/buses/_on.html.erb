@@ -32,9 +32,11 @@
       <% end %>
     </div>
   </div>
-
-  <%= render 'expectations' %>
-
+    <% if !@overlap %>
+      <%= render 'expectations' %>
+    <% else %>
+      <%= render 'expectations_overlap' %>
+    <% end %>
 </div>
 
 <%= render 'modal' %>
