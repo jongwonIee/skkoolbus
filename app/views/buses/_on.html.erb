@@ -39,4 +39,8 @@
     <% end %>
 </div>
 
-<%= render 'modal' %>
+<% if !@overlap %>
+    <%= render 'modal' %>
+<% else %>
+    <%= render 'modal_overlap' %>
+<% end %>
