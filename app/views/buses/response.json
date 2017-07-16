@@ -16,7 +16,7 @@
     "Sequence": 1,
     "StationName": "정차소(인문.농구장)",
     "EventDate": "",
-    "Kind": "",
+    "Kind": "2",
     "GpsLongitude": 0,
     "GpsLatitude": 0,
     "usetime": 0,
@@ -26,7 +26,7 @@
     "Sequence": 2,
     "StationName": "학생회관(인문)",
     "EventDate": "",
-    "Kind": "",
+    "Kind": "3",
     "GpsLongitude": 0,
     "GpsLatitude": 0,
     "usetime": 0,
@@ -35,7 +35,7 @@
   {
     "Sequence": 3,
     "StationName": "정문(인문-하교)",
-    "EventDate": "",
+    "EventDate": "3",
     "Kind": "2",
     "GpsLongitude": 0,
     "GpsLatitude": 0,
@@ -106,10 +106,10 @@
     "Sequence": 10,
     "StationName": "600주년 기념관",
     "EventDate": "",
-    "Kind": "",
+    "Kind": "2",
     "GpsLongitude": 0,
     "GpsLatitude": 0,
     "usetime": 0,
-    "CarNumber": ""
+    "CarNumber": "마"
   }
 ]
