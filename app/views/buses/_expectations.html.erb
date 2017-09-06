@@ -1,0 +1,121 @@
+<div class="bus_info_container" data-remote="true">
+  <div class="bus_info">
+    <div class="bus_info_section1">
+      <div class="bus_info_name1 clickable">
+        <a data-toggle="modal" data-target="#Basketball_court">
+          <p id="#" class="info_name">농구장 앞(하차)</p>
+          <% if @carNumber[0].present? and @kind[0] == "2" %>
+            <p id="#" class="info_arrival">정차중</p>
+          <% elsif @expect[0] <= 1.0 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[0].round(0) %>분 후 도착</p>
+          <% end %>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </a>
+      </div>
+    </div>
+    <div class="bus_info_section2">
+      <div class="bus_info_name2 clickable">
+        <a data-toggle="modal" data-target="#StudentHall">
+          <p id="#" class="info_name">학생회관 앞</p>
+          <% if @carNumber[1].present? and @kind[1] == "2" %>
+            <p id="#" class="info_arrival">정차중</p>
+          <% elsif @expect[1] <= 1.0 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[1].round(0) %>분 후 도착</p>
+          <% end %>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </a>
+      </div>
+      <div class="bus_info_name10 clickable">
+        <a data-toggle="modal" data-target="#Sixhundred_Anniversary">
+          <p id="#" class="info_name">600주년 기념관</p>
+          <% if @carNumber[9].present? and @kind[9] == "2" %>
+            <p id="#" class="info_arrival">정차중</p>
+          <% elsif @expect[9] <= 1.0 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[9].round(0) %>분 후 도착</p>
+          <% end %>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </a>
+      </div>
+    </div>
+    <div class="bus_info_section3">
+      <div class="bus_info_name3 clickable">
+        <a data-toggle="modal" data-target="#Exit">
+          <p id="#" class="info_name">정문(하교)</p>
+          <% if @carNumber[2].present? and @kind[2] == "2" %>
+            <p id="#" class="info_arrival">정차중</p>
+          <% elsif @expect[2] <= 1.0 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[2].round(0) %>분 후 도착</p>
+          <% end %>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </a>
+      </div>
+      <div class="bus_info_name9 clickable">
+        <a data-toggle="modal" data-target="#Entrance">
+          <p id="#" class="info_name">정문(등교)</p>
+          <% if @carNumber[8].present? and @kind[8] == "2" %>
+            <p id="#" class="info_arrival">정차중</p>
+          <% elsif @expect[8] <= 1.0 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[8].round(0) %>분 후 도착</p>
+          <% end %>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </a>
+      </div>
+    </div>
+    <div class="bus_info_section4">
+      <div class="bus_info_name4 clickable">
+        <a data-toggle="modal" data-target="#HyehwaRottery">
+          <p id="#" class="info_name">혜화로터리</p>
+          <% if @carNumber[3].present? and @kind[3] == "2" %>
+            <p id="#" class="info_arrival">정차중</p>
+          <% elsif @expect[3] <= 1.0 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[3].round(0) %>분 후 도착</p>
+          <% end %>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </a>
+      </div>
+      <div class="bus_info_name8 clickable">
+        <a data-toggle="modal" data-target="#McDonald">
+          <p id="#" class="info_name">맥도날드 앞</p>
+          <% if @carNumber[7].present? and @kind[7] == "2" %>
+            <p id="#" class="info_arrival">정차중</p>
+          <% elsif @expect[7] <= 1.0 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[7].round(0) %>분 후 도착</p>
+          <% end %>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </a>
+      </div>
+    </div>
+    <div class="bus_info_section5 clickable">
+      <div class="bus_info_name6">
+        <a data-toggle="modal" data-target="#HyehwaStation">
+          <p id="#" class="info_name">혜화역(승차)</p>
+          <% if @carNumber[5].present? and @kind[5] == "2" %>
+            <p id="#" class="info_arrival">정차중</p>
+          <% elsif @expect[5] <= 1.0 %>
+            <p id="#" class="info_arrival">곧 도착</p>
+          <% else %>
+            <p id="#" class="info_arrival"><%= @expect[5].round(0) %>분 후 도착</p>
+          <% end %>
+          <div class="info_detail"><p>자세히보기</p></div>
+        </a>
+      </div>
+    </div>
+    <div class="button_refresh hvr-push clickable">
+      <a href="/"><%= image_tag 'skkbus_ic_refresh.png' %></a>
+    </div>
+  </div>
+</div>

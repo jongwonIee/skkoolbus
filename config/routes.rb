@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'buses#index'
+  resources :buses
   get 'main' => 'buses#index'
   get 'overlap' => 'buses#index_overlap'
   get 'schedule' => 'buses#show'

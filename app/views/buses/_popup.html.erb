@@ -1,0 +1,58 @@
+<!-- 운행종료 시작 -->
+<!-- Trigger/Open The Modal -->
+<button id="myBtn2"></button>
+
+<!-- The Modal -->
+<div id="myModal2" class="modal2">
+
+  <!-- Modal content -->
+  <div class="modal-content2">
+    <div class="modal-body2">
+      <span class="close2">&times;</span>
+      <div class="modal2_ic">
+        <%= image_tag 'skkbus_ic_schedule_bus.png' %>
+      </div>
+      <h2>운행종료</h2>
+      <p>지금은 셔틀버스 운행시간이 아닙니다</p>
+    </div>
+    <a href="/schedule">
+      <div class="modal-footer2">
+        <p>인사캠셔틀 운행시간 보기</p>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+<!-- 운행종료 끝 -->
+
+<!-- 운행종료 스크립트 시작 -->
+
+<script>
+  // Get the modal
+  var modal = document.getElementById('myModal2');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn2");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close2")[0];
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+<!-- 운행종료 스크립트 끝 -->

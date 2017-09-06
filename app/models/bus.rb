@@ -1,26 +1,27 @@
 class Bus < ApplicationRecord
-  #Bus.s1~s10 업데이트 로직
-  def self.track
 
+  def self.generate
+    @array = []
+    @limit = [4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0]
+    @stations = Predict.first.stations
+    [1,2,3,4,5,6,7,8,9,10].each do |i|
+      average = @stations[i][:average_time]
+      if (average / 60) < @limit[i-1]
+        @array << (average / 60)
+      else
+        @array << @limit[i-1]
+      end
+    end
+    return @array
   end
 
-  #overlap x
   def self.expect(n)
-
-    @array = [
-        ((Bus.find(1).s1 + Bus.find(2).s1 + Bus.find(3).s1) / 3),
-        ((Bus.find(1).s2 + Bus.find(2).s2 + Bus.find(3).s2) / 3),
-        ((Bus.find(1).s3 + Bus.find(2).s3 + Bus.find(3).s3) / 3),
-        ((Bus.find(1).s4 + Bus.find(2).s4 + Bus.find(3).s4) / 3),
-        ((Bus.find(1).s5 + Bus.find(2).s5 + Bus.find(3).s5) / 3),
-        ((Bus.find(1).s6 + Bus.find(2).s6 + Bus.find(3).s6) / 3),
-        ((Bus.find(1).s7 + Bus.find(2).s7 + Bus.find(3).s7) / 3),
-        ((Bus.find(1).s8 + Bus.find(2).s8 + Bus.find(3).s8) / 3),
-        ((Bus.find(1).s9 + Bus.find(2).s9 + Bus.find(3).s9) / 3),
-        ((Bus.find(1).s10 + Bus.find(2).s10 + Bus.find(3).s10) / 3)
-    ]
-
+    Bus.generate
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
+    # response = JSON.parse(File.read('app/views/buses/response.json'))
+    if response.length == 11
+      response = response.drop(1)
+    end
     count = 0
     for l in 1..10
       if response[n-1-l]["CarNumber"].empty?
@@ -36,29 +37,22 @@ class Bus < ApplicationRecord
     return result
   end
 
-  #overlap
   def self.expect2(n)
-
-    @array = [
-        ((Bus.find(1).s1 + Bus.find(2).s1 + Bus.find(3).s1) / 3),
-        ((Bus.find(1).s1 + Bus.find(2).s1 + Bus.find(3).s1) / 3),
-        ((Bus.find(1).s2 + Bus.find(2).s2 + Bus.find(3).s2) / 3),
-        ((Bus.find(1).s3 + Bus.find(2).s3 + Bus.find(3).s3) / 3),
-        ((Bus.find(1).s4 + Bus.find(2).s4 + Bus.find(3).s4) / 3),
-        ((Bus.find(1).s5 + Bus.find(2).s5 + Bus.find(3).s5) / 3),
-        ((Bus.find(1).s6 + Bus.find(2).s6 + Bus.find(3).s6) / 3),
-        ((Bus.find(1).s7 + Bus.find(2).s7 + Bus.find(3).s7) / 3),
-        ((Bus.find(1).s8 + Bus.find(2).s8 + Bus.find(3).s8) / 3),
-        ((Bus.find(1).s9 + Bus.find(2).s9 + Bus.find(3).s9) / 3),
-        ((Bus.find(1).s10 + Bus.find(2).s10 + Bus.find(3).s10) / 3)
-    ]
-
+    Bus.generate
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
+    # response = JSON.parse(File.read('app/views/buses/response.json'))
+    if response.length == 11
+      response = response.drop(1)
+    end
     count = 0
+    token = 0
     for l in 1..10
       if response[n-1-l]["CarNumber"].empty?
         count += 1
-      else
+      elsif token == 0
+        count += 1
+        token += 1
+      elsif (token == 1) and (response[n-1-l]["CarNumber"].empty?)
         break
       end
     end
@@ -67,5 +61,23 @@ class Bus < ApplicationRecord
       result += @array[i]
     end
     return result
+  end
+
+  def self.time(n)
+
+    Bus.generate
+
+    result = 0
+
+    if n == 5 or n == 6 or n == 7 or n == 8 or n == 9
+      (n..9).each do |i|
+        result += @array[i]
+      end
+    else
+      (n..4).each do |i|
+        result += @array[i]
+      end
+    end
+    return result.to_i
   end
 end

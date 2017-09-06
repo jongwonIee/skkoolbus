@@ -1,0 +1,46 @@
+<div class="container">
+  <!-- Navigation_Top -->
+  <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <div onclick="openNav()" class="nav_ic_left ">
+          <%= image_tag 'skkbus_ic_info.png' %>
+        </div>
+        <a class="navbar-brand topnav" style="font-family: Nunito; font-weight: 100;" href="/main"><span style="font-family: Nunito; font-weight: bold; text-shadow: 0.6px 0px 0px">SKK</span>OOL BUS</a>
+        <div class="nav_ic_right">
+          <a href="/schedule"><%= image_tag 'skkbus_ic_schedule.png' %></a>
+        </div>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+</div>
+
+
+
+<div class="bus_all" style="">
+  <%= render 'info' %>
+
+  <div class="bus_line_container">
+    <div class="bus_line">
+      <% if !@overlap %>
+        <%= render 'normal' %>
+      <% else %>
+        <%= render 'overlap' %>
+      <% end %>
+    </div>
+  </div>
+    <% if !@overlap %>
+      <%= render 'expectations' %>
+    <% else %>
+      <%= render 'expectations_overlap' %>
+    <% end %>
+</div>
+
+<% if !@overlap %>
+    <%= render 'modal' %>
+<% else %>
+    <%= render 'modal_overlap' %>
+<% end %>

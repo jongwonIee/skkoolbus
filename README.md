@@ -1,3 +1,5 @@
+app will be launched soon
+
 http://skkoolbus.com/
 
 tasks
@@ -12,3 +14,5 @@ expectation db stack
 server
 
 android
+
+Rails app for skku bus system

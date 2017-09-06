@@ -1,0 +1,209 @@
+<% if @on == false %>
+    <%= render 'popup' %>
+<% end %>
+<!-- shuttle_walk를 조금 더 짜보자 // 국제관에서 -> 다른 건물 // 농구장 -> 국제관 -->
+<div class="container">
+  <!-- Navigation_Top -->
+  <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <div onclick="openNav()" class="nav_ic_left ">
+          <%= image_tag 'skkbus_ic_info.png' %>
+        </div>
+        <a class="navbar-brand topnav" style="font-family: Nunito; font-weight: 100;" href="/main"><span style="font-family: Nunito; font-weight: bold; text-shadow: 0.6px 0px 0px">SKK</span>OOL BUS</a>
+        <div class="nav_ic_right">
+          <a href="/schedule"><%= image_tag 'skkbus_ic_schedule.png' %></a>
+        </div>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+</div>
+
+
+
+<div class="bus_all" style="">
+
+  <%= render 'info' %>
+
+  <div class="bus_line_container">
+    <div class="bus_line">
+      <div class="bus_station_section1">
+
+        <div class="s2 bus_dep1">
+          <div class="bus_ic_dep">
+          </div>
+        </div>
+        <div class="s1 bus_station_sequence1 clickable">
+          <a data-toggle="modal" data-target="#Basketball_court">
+            <%= image_tag 'skkbus_ic_left.png', class: 'sequence1_arrow' %>
+          </a>
+        </div>
+        <div class="s2 bus_dep10">
+          <div class="bus_ic_dep">
+          </div>
+        </div>
+      </div>
+      <div class="bus_station_section2">
+        <a data-toggle="modal" data-target="#StudentHall">
+          <div class="s1 bus_station_sequence2 clickable">
+            <%= image_tag 'skkbus_ic_left.png' , class: 'sequence10_arrow' %>
+            <div class="bus_ic_station">
+            </div>
+          </div>
+        </a>
+        <div class="s1 bus_station_sequence10 clickable">
+          <a data-toggle="modal" data-target="#Sixhundred_Anniversary">
+            <%= image_tag 'skkbus_ic_left.png' , class: 'sequence2_arrow' %>
+            <div class="bus_ic_station">
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="bus_station_section3">
+        <div class="s2 bus_dep2">
+          <div class="bus_ic_dep">
+          </div>
+        </div>
+        <div class="s2 bus_dep9">
+          <div class="bus_ic_dep">
+          </div>
+        </div>
+      </div>
+      <div class="bus_station_section4">
+        <div class="s1 bus_station_sequence3 clickable">
+          <a data-toggle="modal" data-target="#Exit">
+            <%= image_tag 'skkbus_ic_left.png' , class: 'sequence10_arrow' %>
+            <div class="bus_ic_station">
+            </div>
+          </a>
+        </div>
+        <div class="s1 bus_station_sequence9 clickable">
+          <a data-toggle="modal" data-target="#Entrance">
+            <%= image_tag 'skkbus_ic_left.png' , class: 'sequence2_arrow' %>
+            <div class="bus_ic_station">
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="bus_station_section5">
+        <div class="s2 bus_dep3">
+          <div class="bus_ic_dep">
+          </div>
+        </div>
+        <div class="s2 bus_dep8">
+          <div class="bus_ic_dep">
+          </div>
+        </div>
+      </div>
+      <div class="bus_station_section6">
+        <div class="s1 bus_station_sequence4 clickable">
+          <a data-toggle="modal" data-target="#HyehwaRottery">
+            <%= image_tag 'skkbus_ic_left.png', class: 'sequence10_arrow' %>
+            <div class="bus_ic_station">
+            </div>
+          </a>
+        </div>
+        <div class="s1 bus_station_sequence8 clickable">
+          <a data-toggle="modal" data-target="#McDonald">
+            <%= image_tag 'skkbus_ic_left.png' , class: 'sequence2_arrow' %>
+            <div class="bus_ic_station">
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="bus_station_section7">
+        <div class="s2 bus_dep4">
+          <div class="bus_ic_dep">
+          </div>
+        </div>
+        <div class="s1 bus_station_sequence6 clickable">
+          <a data-toggle="modal" data-target="#HyehwaStation">
+            <%= image_tag 'skkbus_ic_left.png' , class: 'sequence6_arrow' %>
+          </a>
+        </div>
+        <div class="s2 bus_dep6">
+          <div class="bus_ic_dep">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="bus_info_container">
+    <div class="bus_info">
+      <div class="bus_info_section1">
+        <div class="bus_info_name1 clickable">
+          <a data-toggle="modal" data-target="#Basketball_court">
+            <p id="#" class="info_name">농구장 앞(하차)</p>
+            <p id="#" class="info_arrival">운행종료</p>
+            <div class="info_detail"><p>자세히보기</p></div>
+          </a>
+        </div>
+      </div>
+      <div class="bus_info_section2">
+        <div class="bus_info_name2 clickable">
+          <a data-toggle="modal" data-target="#StudentHall">
+            <p id="#" class="info_name">학생회관 앞</p>
+            <p id="#" class="info_arrival">운행종료</p>
+            <div class="info_detail"><p>자세히보기</p></div>
+          </a>
+        </div>
+        <div class="bus_info_name10 clickable">
+          <a data-toggle="modal" data-target="#Sixhundred_Anniversary">
+            <p id="#" class="info_name">600주년 기념관</p>
+            <p id="#" class="info_arrival">운행종료</p>
+            <div class="info_detail"><p>자세히보기</p></div>
+          </a>
+        </div>
+      </div>
+      <div class="bus_info_section3">
+        <div class="bus_info_name3 clickable">
+          <a data-toggle="modal" data-target="#Exit">
+            <p id="#" class="info_name">정문(하교)</p>
+            <p id="#" class="info_arrival">운행종료</p>
+            <div class="info_detail"><p>자세히보기</p></div>
+          </a>
+        </div>
+        <div class="bus_info_name9 clickable">
+          <a data-toggle="modal" data-target="#Entrance">
+            <p id="#" class="info_name">정문(등교)</p>
+            <p id="#" class="info_arrival">운행종료</p>
+            <div class="info_detail"><p>자세히보기</p></div>
+          </a>
+        </div>
+      </div>
+      <div class="bus_info_section4">
+        <div class="bus_info_name4 clickable">
+          <a data-toggle="modal" data-target="#HyehwaRottery">
+            <p id="#" class="info_name">혜화로터리</p>
+            <p id="#" class="info_arrival">운행종료</p>
+            <div class="info_detail"><p>자세히보기</p></div>
+          </a>
+        </div>
+        <div class="bus_info_name8 clickable">
+          <a data-toggle="modal" data-target="#McDonald">
+            <p id="#" class="info_name">맥도날드 앞</p>
+            <p id="#" class="info_arrival">운행종료</p>
+            <div class="info_detail"><p>자세히보기</p></div>
+          </a>
+        </div>
+      </div>
+      <div class="bus_info_section5 clickable">
+        <div class="bus_info_name6">
+          <a data-toggle="modal" data-target="#HyehwaStation">
+            <p id="#" class="info_name">혜화역(승차)</p>
+            <p id="#" class="info_arrival">운행종료</p>
+            <div class="info_detail"><p>자세히보기</p></div>
+          </a>
+        </div>
+      </div>
+      <div class="button_refresh hvr-push clickable">
+        <a href="/"><%= image_tag 'skkbus_ic_refresh.png' %></a>
+      </div>
+    </div>
+  </div>
+
+</div>
