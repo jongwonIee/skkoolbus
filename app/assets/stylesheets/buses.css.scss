@@ -19,7 +19,7 @@
   }
 
   .info_message p{
-    font-size: 13px;
+    font-size: 0.9em;
   }
 
   .title_line{
@@ -38,7 +38,7 @@
   }
 
   .info_howto p{
-    font-size: 12px;
+    font-size: 0.9em;
     margin: 10px 0 10px 0;
   }
 
@@ -530,7 +530,7 @@
 
   .info_name{
     margin: 0px;
-    font-size: 12px;
+    font-size: 0.9em;
     color: #595c60;
   }
 
@@ -540,7 +540,7 @@
 
   .info_arrival{
     margin: 0px;
-    font-size: 13px;
+    font-size: 0.9em;
     color: #E8802C;
     letter-spacing: -1.2px;
   }
@@ -557,7 +557,8 @@
 
   .info_detail p{
     margin: 0px;
-    font-size: 11px;
+    font-size: 0.8em;
+    font-weight: 500;
   }
 
   .button_refresh{
@@ -602,7 +603,7 @@
   }
 
   .info_message p{
-    font-size: 12px;
+    font-size: 0.9em;
   }
 
   .title_line{
@@ -1117,7 +1118,7 @@
 
   .info_name{
     margin: 0px;
-    font-size: 12px;
+    font-size: 0.9em;
     color: #595c60;
   }
 
@@ -1127,7 +1128,7 @@
 
   .info_arrival{
     margin: 0px;
-    font-size: 13px;
+    font-size: 0.9em;
     color: #E8802C;
     letter-spacing: -1.2px;
   }
@@ -1144,7 +1145,8 @@
 
   .info_detail p{
     margin: 0px;
-    font-size: 11px;
+    font-size: 0.8em;
+    font-weight: 500;
   }
 
   .button_refresh{
@@ -1223,7 +1225,7 @@
 
 
   .table_long {
-    width: 90%; height: 100%; float: right; font-size: 11px; text-align: left;
+    width: 90%; height: 100%; float: right; font-size: 0.8em; text-align: left;
   }
 
 
@@ -1398,7 +1400,7 @@
     margin-bottom: 0;
     margin-top: 0px;
     width: 65px;
-    font-size: 12px;
+    font-size: 0.9em;
   }
 
   .word_line_2nd {
@@ -1407,7 +1409,7 @@
     margin-top: -11px;
     margin-bottom: 0;
     width: 65px;
-    font-size: 12px;
+    font-size: 0.9em;
   }
 
   .word_line_3rd {
@@ -1429,7 +1431,7 @@
 @media all and (max-width : 360px) {
 
   .table_long {
-    width: 90%; height: 100%; float: right; font-size: 11px; text-align: left;
+    width: 90%; height: 100%; float: right; font-size: 0.8em; text-align: left;
   }
 
 
@@ -1808,7 +1810,7 @@
     margin-bottom: 0;
     margin-top: 0px;
     width: 65px;
-    font-size: 12px;
+    font-size: 0.9em;
   }
 
   .word_line_2nd {
@@ -1817,7 +1819,7 @@
     margin-top: -11px;
     margin-bottom: 0;
     width: 65px;
-    font-size: 12px;
+    font-size: 0.9em;
   }
 
   .word_line_3rd {
