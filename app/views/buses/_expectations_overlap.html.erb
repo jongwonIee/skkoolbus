@@ -3,7 +3,7 @@
     <div class="bus_info_section1">
       <div class="bus_info_name1 clickable">
         <a data-toggle="modal" data-target="#Basketball_court">
-          <p id="#" class="info_name">농구장 앞(하차)</p>
+          <p id="#" class="info_name">농구장 앞</p>
           <% if @carNumber[0].present? and @kind[0] == "2" %>
               <p id="#" class="info_arrival">정차중</p>
           <% elsif @expect[0] <= 1.0 %>
@@ -11,7 +11,7 @@
           <% else %>
               <p id="#" class="info_arrival"><%= @expect[0].round(0) %>분 후 도착</p>
           <% end %>
-          <div class="info_detail"><p>자세히보기</p></div>
+          <div class="info_detail"><p>더 보기</p></div>
         </a>
       </div>
     </div>
@@ -26,12 +26,12 @@
           <% else %>
               <p id="#" class="info_arrival"><%= @expect[2].round(0) %>분 후 도착</p>
           <% end %>
-          <div class="info_detail"><p>자세히보기</p></div>
+          <div class="info_detail"><p>더 보기</p></div>
         </a>
       </div>
       <div class="bus_info_name10 clickable">
         <a data-toggle="modal" data-target="#Sixhundred_Anniversary">
-          <p id="#" class="info_name">600주년 기념관</p>
+          <p id="#" class="info_name">600주년</p>
           <% if @carNumber[10].present? and @kind[10] == "2" %>
               <p id="#" class="info_arrival">정차중</p>
           <% elsif @expect[10] <= 1.0 %>
@@ -39,7 +39,7 @@
           <% else %>
               <p id="#" class="info_arrival"><%= @expect[10].round(0) %>분 후 도착</p>
           <% end %>
-          <div class="info_detail"><p>자세히보기</p></div>
+          <div class="info_detail"><p>더 보기</p></div>
         </a>
       </div>
     </div>
@@ -54,7 +54,7 @@
           <% else %>
               <p id="#" class="info_arrival"><%= @expect[3].round(0) %>분 후 도착</p>
           <% end %>
-          <div class="info_detail"><p>자세히보기</p></div>
+          <div class="info_detail"><p>더 보기</p></div>
         </a>
       </div>
       <div class="bus_info_name9 clickable">
@@ -67,7 +67,7 @@
           <% else %>
               <p id="#" class="info_arrival"><%= @expect[9].round(0) %>분 후 도착</p>
           <% end %>
-          <div class="info_detail"><p>자세히보기</p></div>
+          <div class="info_detail"><p>더 보기</p></div>
         </a>
       </div>
     </div>
@@ -82,7 +82,7 @@
           <% else %>
               <p id="#" class="info_arrival"><%= @expect[4].round(0) %>분 후 도착</p>
           <% end %>
-          <div class="info_detail"><p>자세히보기</p></div>
+          <div class="info_detail"><p>더 보기</p></div>
         </a>
       </div>
       <div class="bus_info_name8 clickable">
@@ -95,7 +95,7 @@
           <% else %>
               <p id="#" class="info_arrival"><%= @expect[8].round(0) %>분 후 도착</p>
           <% end %>
-          <div class="info_detail"><p>자세히보기</p></div>
+          <div class="info_detail"><p>더 보기</p></div>
         </a>
       </div>
     </div>
@@ -110,7 +110,7 @@
           <% else %>
               <p id="#" class="info_arrival"><%= @expect[6].round(0) %>분 후 도착</p>
           <% end %>
-          <div class="info_detail"><p>자세히보기</p></div>
+          <div class="info_detail"><p>더 보기</p></div>
         </a>
       </div>
     </div>
