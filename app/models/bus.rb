@@ -49,7 +49,7 @@ class Bus < ApplicationRecord
     for l in 1..10
       if response[n-1-l]["CarNumber"].empty?
         count += 1
-      elsif token == 0
+      elsif !response[n-1-l]["CarNumber"].empty? && token == 0
         count += 1
         token += 1
       elsif (token == 1) and (response[n-1-l]["CarNumber"].empty?)
