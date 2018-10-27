@@ -85,11 +85,11 @@ module BusesHelper
       time_taken = 1
     end
 
-    if time_taken > 1800
+    if time_taken > 800
       return false
     end
 
-    if station[:time_taken].size < 3
+    if station[:time_taken].size < 4
       station[:time_taken] << time_taken
     else
       station[:time_taken].shift
