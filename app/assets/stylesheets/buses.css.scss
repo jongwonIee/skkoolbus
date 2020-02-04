@@ -7,6 +7,13 @@
   //index
   /* The side navigation menu */
 
+  .weather_info{
+    position: fixed;
+    left: 50%;
+    top: 620px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+  }
   .info_message {
     display:inline-block;
     text-align: left;
