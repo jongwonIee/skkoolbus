@@ -11,8 +11,8 @@ class BusesController < ApplicationController
     reloader
     api
     estimations
-    weather
     message
+    weather
 
   end
 
@@ -26,8 +26,8 @@ class BusesController < ApplicationController
     agent = Mechanize.new
     while
     begin
-      content1 = agent.get('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%84%B1%EB%B6%81%EA%B5%AC+%EC%98%A8%EB%8F%84').search("dd.lv1")[0].text
-      @dust = '미세먼지 : ' + content1.split('㎥')[1]
+      content1 = agent.get('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%84%B1%EB%B6%81%EA%B5%AC+%EC%98%A8%EB%8F%84').search("div.sub_info")[0].text
+      @dust = '미세먼지 : ' + content1.split('㎥')[1].split('초미세먼지')[0]
       content2 = agent.get('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%84%B1%EB%B6%81%EA%B5%AC+%EC%98%A8%EB%8F%84').search("div.main_info")[0].text
       @temp = content2.gsub('도씨', '').split(',')[0]
 
