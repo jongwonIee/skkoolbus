@@ -2,6 +2,8 @@ class BusesController < ApplicationController
   include BusesHelper
   require 'rubygems'
   require 'mechanize'
+  require 'csv'
+
 
   def index
 
@@ -9,7 +11,32 @@ class BusesController < ApplicationController
     reloader
     api
     estimations
+    weather
+    message
 
+  end
+
+  def message
+    message = Message.all.shuffle.first.name
+    # message = 1
+    @msg = message
+  end
+
+  def weather
+    agent = Mechanize.new
+    while
+    begin
+      content1 = agent.get('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%84%B1%EB%B6%81%EA%B5%AC+%EC%98%A8%EB%8F%84').search("dd.lv1")[0].text
+      @dust = '미세먼지 : ' + content1.split('㎥')[1]
+      content2 = agent.get('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%84%B1%EB%B6%81%EA%B5%AC+%EC%98%A8%EB%8F%84').search("div.main_info")[0].text
+      @temp = content2.gsub('도씨', '').split(',')[0]
+
+      raise 'An error has occured.'
+      break
+    rescue
+      break
+    end
+    end
   end
 
   def reloader
@@ -17,25 +44,6 @@ class BusesController < ApplicationController
   end
 
   def api
-
-    # dust
-    agent = Mechanize.new
-    while
-      begin
-        content1 = agent.get('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%84%B1%EB%B6%81%EA%B5%AC+%EC%98%A8%EB%8F%84').search("dd.lv1")[0].text
-        @dust = '미세먼지 : ' + content1.split('㎥')[1]
-        content2 = agent.get('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%84%B1%EB%B6%81%EA%B5%AC+%EC%98%A8%EB%8F%84').search("div.main_info")[0].text
-        @temp = content2.gsub('도씨', '').split(',')[0]
-        kr_msg = ['행복한 하루 보내세요', '좋은 일이 생길거에요', '오늘은 출첵 안 할지도?', '희망을 가져요', '감기 조심', '할 수 있다', '그럴 수도 있지', ':)']
-        en_msg = ['Today is your day', 'Your mountain is waiting, so get on your way', 'No one is perfect, that’s why pencils have erasers', 'You’re braver than you believe']
-        msg = kr_msg + en_msg
-        @msg = msg.sample()
-        raise 'An error has occured.'
-        break
-      rescue
-        break
-      end
-    end
 
     # bus tracking
     response = JSON.parse(HTTParty.get "http://scard.skku.edu/Symtra_Bus/BusLocationJson.asp")
