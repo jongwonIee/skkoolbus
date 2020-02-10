@@ -1,5 +1,3 @@
-
-
 /* Bus line css large start */
 
 @media all and (min-width: 375px) {
@@ -7,13 +5,6 @@
   //index
   /* The side navigation menu */
 
-  .weather_info{
-    position: fixed;
-    left: 50%;
-    top: 620px;
-    transform: translate(-50%, -50%);
-    margin: 0 auto;
-  }
   .info_message{
     display:inline-block;
     text-align: left;
@@ -476,7 +467,6 @@
     clear: both;
     float: left;
     margin-top: 80px;
-    text-align: center;
     position: relative;
     box-sizing: border-box;
     z-index: 60;
@@ -484,6 +474,15 @@
     width: inherit;
   }
 
+  .weather_info{
+    clear: both;
+    float: left;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 5;
+    width: inherit;
+  }
 
   .bus_info_name1{
     width: 90px;
@@ -1065,10 +1064,18 @@
     position: relative;
     box-sizing: border-box;
     z-index: 60;
-    text-align: center;
     width: inherit;
   }
 
+  .weather_info{
+    clear: both;
+    float: left;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 5;
+    width: inherit;
+  }
 
   .bus_info_name1{
     width: 90px;
