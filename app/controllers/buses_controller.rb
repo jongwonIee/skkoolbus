@@ -4,10 +4,9 @@ class BusesController < ApplicationController
   require 'mechanize'
   require 'csv'
 
-
   def index
 
-    cookies.delete(:stations)
+    # cookies.delete(:stations)
     reloader
     api
     estimations
