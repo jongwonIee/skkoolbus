@@ -71,11 +71,11 @@ class Bus < ApplicationRecord
 
     if n == 5 or n == 6 or n == 7 or n == 8 or n == 9
       (n..9).each do |i|
-        result += @array[i]
+        result += @array[i].to_i
       end
     else
       (n..4).each do |i|
-        result += @array[i]
+        result += @array[i].to_i
       end
     end
     return result.to_i

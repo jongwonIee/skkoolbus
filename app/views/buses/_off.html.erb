@@ -199,9 +199,18 @@
           </a>
         </div>
       </div>
+
       <div class="button_refresh hvr-push clickable">
         <%= link_to (image_tag 'skkbus_ic_refresh.png'), root_path, class: 'btn' %>
       </div>
+
+      <div class="weather_info">
+        <p id="#" class="info_name"><%= @temp %></p>
+        <p id="#" class="info_name"><%= @dust %></p>
+        <p id="#" class="info_name"><%= @msg %></p>
+        <a href="https://forms.gle/53ibndkerZsBG47M8" style="font-size:10px"> 덕담 공모 </a>
+      </div>
+
     </div>
   </div>
 </div>
